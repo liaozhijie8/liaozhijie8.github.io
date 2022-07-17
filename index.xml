@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>6eon</title>
+        <link>https://liaozhijie8.github.io/</link>
+        <description>这是我的全新 Hugo 网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 18 Jul 2022 04:34:18 &#43;0800</lastBuildDate>
+            <atom:link href="https://liaozhijie8.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>First_post</title>
+    <link>https://liaozhijie8.github.io/first_post/</link>
+    <pubDate>Mon, 18 Jul 2022 04:34:18 &#43;0800</pubDate>
+    <author>6eon</author>
+    <guid>https://liaozhijie8.github.io/first_post/</guid>
+    <description><![CDATA[我的]]></description>
+</item>
+</channel>
+</rss>
