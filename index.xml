@@ -1,9 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>6eon</title>
+        <title>6eon | 博客</title>
         <link>https://liaozhijie8.github.io/</link>
-        <description>这是我的全新 Hugo 网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 18 Jul 2022 07:25:17 &#43;0800</lastBuildDate>
+        <description>If you&#39;re afraid to fail, then you&#39;re probably gone to fail</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>6666eon@gmail.com (6eon)</managingEditor>
+            <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Mon, 18 Jul 2022 08:31:09 &#43;0800</lastBuildDate>
             <atom:link href="https://liaozhijie8.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>2_记录</title>
@@ -11,7 +12,7 @@
     <pubDate>Mon, 18 Jul 2022 07:25:17 &#43;0800</pubDate>
     <author>6eon</author>
     <guid>https://liaozhijie8.github.io/2_%E8%AE%B0%E5%BD%95/</guid>
-    <description><![CDATA[#的快捷方式扩大飞机]]></description>
+    <description><![CDATA[#我的]]></description>
 </item>
 <item>
     <title>First_post</title>
@@ -19,7 +20,7 @@
     <pubDate>Mon, 18 Jul 2022 04:34:18 &#43;0800</pubDate>
     <author>6eon</author>
     <guid>https://liaozhijie8.github.io/first_post/</guid>
-    <description><![CDATA[我的]]></description>
+    <description><![CDATA[我的 好机会]]></description>
 </item>
 </channel>
 </rss>

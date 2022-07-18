@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 6eon | 博客</title>
+    <link>https://liaozhijie8.github.io/tags/</link>
+    <description>Recent content in Tags on 6eon | 博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>6666eon@gmail.com (6eon)</managingEditor>
+    <webMaster>6666eon@gmail.com (6eon)</webMaster>
+    <lastBuildDate>Mon, 18 Jul 2022 08:31:09 +0800</lastBuildDate><atom:link href="https://liaozhijie8.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇分类</title>
+      <link>https://liaozhijie8.github.io/tags/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%88%86%E7%B1%BB/</link>
+      <pubDate>Mon, 18 Jul 2022 08:31:09 +0800</pubDate>
+      <author>6666eon@gmail.com (6eon)</author>
+      <guid>https://liaozhijie8.github.io/tags/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%88%86%E7%B1%BB/</guid>
+      <description>#wode</description>
+    </item>
+    
+  </channel>
+</rss>
