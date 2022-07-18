@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ES6 - Tag - 6eon | 博客</title>
+        <link>https://liaozhijie8.github.io/tags/es6/</link>
+        <description>ES6 - Tag - 6eon | 博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>6666eon@gmail.com (6eon)</managingEditor>
+            <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Mon, 18 Jul 2022 17:09:09 &#43;0800</lastBuildDate><atom:link href="https://liaozhijie8.github.io/tags/es6/" rel="self" type="application/rss+xml" /><item>
+    <title>ES6新语法</title>
+    <link>https://liaozhijie8.github.io/es6%E6%96%B0%E8%AF%AD%E6%B3%95/</link>
+    <pubDate>Mon, 18 Jul 2022 17:09:09 &#43;0800</pubDate>
+    <author>6eon</author>
+    <guid>https://liaozhijie8.github.io/es6%E6%96%B0%E8%AF%AD%E6%B3%95/</guid>
+    <description><![CDATA[ES6新语法]]></description>
+</item>
+</channel>
+</rss>
