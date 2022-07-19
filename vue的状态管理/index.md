@@ -17,8 +17,9 @@
   * Actions from different views may need to mutate the same piece of state.
   + 当我们需要多组件共享数据或者处理数据时，会变得繁琐，尤其是当嵌套组件过多时，单向数据的传递会变得尤为复杂且低效
   + 为解决这两个问题,需要一个全局管理数据的工具-----Vuex
-  
-  ![](../../assets/image/vuex.png)
+
+---  
+{{< figure src="https://vuex.vuejs.org/vuex.png" title="Vuex工作流程" >}}
 
 ### 如何使用Vuex
 #### 组成部分
