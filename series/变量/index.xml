@@ -5,12 +5,12 @@
         <description>变量 - series - 6eon | 博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>6666eon@gmail.com (6eon)</managingEditor>
             <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Tue, 19 Jul 2022 09:58:57 &#43;0800</lastBuildDate><atom:link href="https://liaozhijie8.github.io/series/%E5%8F%98%E9%87%8F/" rel="self" type="application/rss+xml" /><item>
-    <title>ES6变量</title>
+    <title>ES6新关键字</title>
     <link>https://liaozhijie8.github.io/es6%E5%8F%98%E9%87%8F/</link>
     <pubDate>Tue, 19 Jul 2022 09:58:57 &#43;0800</pubDate>
     <author>6eon</author>
     <guid>https://liaozhijie8.github.io/es6%E5%8F%98%E9%87%8F/</guid>
-    <description><![CDATA[var、let、const的几点区别 1、重复声明 let和const都不允许，var可以。为了规范编程减少使用var，其实在vueAPI中也大]]></description>
+    <description><![CDATA[浅谈一下变量关键字]]></description>
 </item>
 </channel>
 </rss>

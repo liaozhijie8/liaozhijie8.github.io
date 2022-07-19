@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Vue的状态管理 - 6eon | 博客</title><meta name="Description" content="If you&#39;re afraid to fail, then you&#39;re probably gone to fail"><meta property="og:title" content="Vue的状态管理" />
-<meta property="og:description" content="vue的数据管理对比" />
+        <title>Vue的状态管理 - 6eon | 博客</title><meta name="Description" content="Vuex is a state management pattern "><meta property="og:title" content="Vue的状态管理" />
+<meta property="og:description" content="Vuex is a state management pattern " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liaozhijie8.github.io/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" /><meta property="og:image" content="https://liaozhijie8.github.io/tea.svg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-18T16:34:36+08:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://liaozhijie8.github.io/tea.svg"/>
 
 <meta name="twitter:title" content="Vue的状态管理"/>
-<meta name="twitter:description" content="vue的数据管理对比"/>
+<meta name="twitter:description" content="Vuex is a state management pattern "/>
 <meta name="application-name" content="6eon | 博客">
 <meta name="apple-mobile-web-app-title" content="6eon | 博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://liaozhijie8.github.io/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" /><link rel="next" href="https://liaozhijie8.github.io/vue%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACapi/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -29,13 +29,13 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaozhijie8.github.io\/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86\/"
-        },"genre": "posts","keywords": "vue, 数据管理","wordcount":  10 ,
+        },"genre": "posts","keywords": "vue, 数据管理","wordcount":  972 ,
         "url": "https:\/\/liaozhijie8.github.io\/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86\/","datePublished": "2022-07-18T16:34:36+08:00","dateModified": "2022-07-18T16:34:36+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "6eon"
-            },"description": ""
+            },"description": "Vuex is a state management pattern "
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -116,9 +116,9 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vue的状态管理</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>6eon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-18">2022-07-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;10 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;<span id="/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" class="leancloud_visitors" data-flag-title="Vue的状态管理">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>6eon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/vue/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vue</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-18">2022-07-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;972 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;<span id="/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" class="leancloud_visitors" data-flag-title="Vue的状态管理">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -126,9 +126,273 @@
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><h1 id="centervue的数据管理对比"><center>vue的数据管理对比</h1>
-</div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#为什么需要状态管理">为什么需要状态管理？</a></li>
+        <li><a href="#如何使用vuex">如何使用Vuex</a>
+          <ul>
+            <li><a href="#组成部分">组成部分</a></li>
+          </ul>
+        </li>
+        <li><a href="#使用步骤">使用步骤</a></li>
+        <li><a href="#全新的版本pinia">全新的版本<strong>pinia</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p><strong><a href="https://vuex.vuejs.org/" target="_blank" rel="noopener noreffer ">State Management Pattern</a></strong></p>
+</blockquote>
+<h3 id="为什么需要状态管理">为什么需要状态管理？</h3>
+<ul>
+<li>在回答这个问题之前我们先看一下不用Vuex,是如何进行组件之间的数据传递的
+<ul>
+<li>以Vue2为例子，组件之间的数据共享大致分为三部分</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th>方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">父组件-&gt;子组件</td>
+<td><strong>子组件中</strong>,通过 props 来自定义属性 <strong>父组件中</strong>,负责把数据，通过 v-bind: 绑定给子组件</td>
+</tr>
+<tr>
+<td style="text-align:center">子组件-&gt;父组件</td>
+<td><strong>子组件中</strong>调用 this.$emit() 来触发自定义事件. <strong>父组件</strong>中，通过 v-on: 来绑定自定义事件，并提供一个事件处理函数。通过事件处理函数的形参，接收到子组件传递过来的数据。.</td>
+</tr>
+<tr>
+<td style="text-align:center">兄弟组件共享数据</td>
+<td>EventBus 其实原理与子组件传父组件相似</td>
+</tr>
+</tbody>
+</table>
+<p>显然这种方式对于单个数据或者少量数据处理是没有问题的，但是官方提出了两个问题</p>
+<ul>
+<li>Multiple views may depend on the same piece of state.</li>
+<li>Actions from different views may need to mutate the same piece of state.</li>
+</ul>
+<ul>
+<li>当我们需要多组件共享数据或者处理数据时，会变得繁琐，尤其是当嵌套组件过多时，单向数据的传递会变得尤为复杂且低效</li>
+<li>为解决这两个问题,需要一个全局管理数据的工具&mdash;&ndash;Vuex</li>
+</ul>
+<p><figure><a class="lightgallery" href="../../assets/image/vuex.png" title="../../assets/image/vuex.png" data-thumbnail="../../assets/image/vuex.png" data-sub-html="<h2>Vuex处理数据流程</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="../../assets/image/vuex.png"
+            data-srcset="../../assets/image/vuex.png, ../../assets/image/vuex.png 1.5x, ../../assets/image/vuex.png 2x"
+            data-sizes="auto"
+            alt="../../assets/image/vuex.png" />
+    </a><figcaption class="image-caption">Vuex处理数据流程</figcaption>
+    </figure></p>
+<h3 id="如何使用vuex">如何使用Vuex</h3>
+<h4 id="组成部分">组成部分</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">组成</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">State</td>
+<td style="text-align:left">存放全局数据</td>
+</tr>
+<tr>
+<td style="text-align:left">Getters</td>
+<td style="text-align:left">简单计算处理State中的数据,再传递给组件</td>
+</tr>
+<tr>
+<td style="text-align:left">Mutations</td>
+<td style="text-align:left">通过commit方法改变State中的数据,执行的是同步操作</td>
+</tr>
+<tr>
+<td style="text-align:left">Actions</td>
+<td style="text-align:left">通过dispatch方法改变State中的数据,执行的是异步操作</td>
+</tr>
+<tr>
+<td style="text-align:left">Modules</td>
+<td style="text-align:left">模块化</td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用步骤">使用步骤</h3>
+<ul>
+<li>利用createStore方法新建实例
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { createStore } from &#39;vuex&#39;
+</span></span><span class="line"><span class="cl">import index from &#39;./cart/index&#39;
+</span></span><span class="line"><span class="cl">const store = createStore({
+</span></span><span class="line"><span class="cl">modules: {
+</span></span><span class="line"><span class="cl">  cart: index //子模块
+</span></span><span class="line"><span class="cl"> }
+</span></span><span class="line"><span class="cl">})
+</span></span><span class="line"><span class="cl">export default store
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>在main函数中注册
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { createApp } from &#39;vue&#39;
+</span></span><span class="line"><span class="cl">import App from &#39;./App.vue&#39;
+</span></span><span class="line"><span class="cl">import store from &#39;./store&#39;  //引入注册
+</span></span><span class="line"><span class="cl">const app = createApp(App)
+</span></span><span class="line"><span class="cl">app.use(store)
+</span></span><span class="line"><span class="cl">app.mount(&#39;#app&#39;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>子模块定义数据方法</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { Goods } from &#39;./interface&#39;
+</span></span><span class="line"><span class="cl">export default {
+</span></span><span class="line"><span class="cl">  // 开启空间命名
+</span></span><span class="line"><span class="cl">  namespaced: true,
+</span></span><span class="line"><span class="cl">  state: {
+</span></span><span class="line"><span class="cl">    goods: [
+</span></span><span class="line"><span class="cl">      { id: 0, name: &#39;牙刷&#39;, price: 20, count: 22 },
+</span></span><span class="line"><span class="cl">      { id: 1, name: &#39;平板&#39;, price: 2, count: 322 },
+</span></span><span class="line"><span class="cl">      { id: 2, name: &#39;背包&#39;, price: 210, count: 266 },
+</span></span><span class="line"><span class="cl">      { id: 3, name: &#39;电脑&#39;, price: 203, count: 255 },
+</span></span><span class="line"><span class="cl">      { id: 4, name: &#39;手机&#39;, price: 204, count: 23 }
+</span></span><span class="line"><span class="cl">    ],
+</span></span><span class="line"><span class="cl">    totalPrice: 0
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  getters: {
+</span></span><span class="line"><span class="cl">    getPrice: (state: Goods) =&gt; (price: number) =&gt; {
+</span></span><span class="line"><span class="cl">      return state.goods.filter(d =&gt; d.price &gt; price)
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  mutations: {
+</span></span><span class="line"><span class="cl">    addPrice(state: Goods, id: number) {
+</span></span><span class="line"><span class="cl">      state.totalPrice += state.goods[id].price
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  actions: {
+</span></span><span class="line"><span class="cl">    fetchTotalPrice({ commit }, payload: number) {
+</span></span><span class="line"><span class="cl">      commit(&#39;addPrice&#39;, payload)
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在组件中使用 <strong>需要注意引用子模块的方式</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { useStore } from &#39;vuex&#39;
+</span></span><span class="line"><span class="cl">setup() {
+</span></span><span class="line"><span class="cl">    const store = useStore()
+</span></span><span class="line"><span class="cl">    // 引用方法store.属性.模块名称.数据
+</span></span><span class="line"><span class="cl">    const goods = computed(() =&gt; store.state.cart.goods)
+</span></span><span class="line"><span class="cl">    const totalPrice = computed(() =&gt; store.state.cart.totalPrice)
+</span></span><span class="line"><span class="cl">    const chooseGoods = (id: number) =&gt; {
+</span></span><span class="line"><span class="cl">      // 使用action
+</span></span><span class="line"><span class="cl">      store.dispatch(&#39;cart/fetchTotalPrice&#39;, id)
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    // // // 使用getter
+</span></span><span class="line"><span class="cl">    const priceGoods = computed(() =&gt; store.getters[&#39;cart/getPrice&#39;](100))
+</span></span><span class="line"><span class="cl">    return {
+</span></span><span class="line"><span class="cl">      goods,
+</span></span><span class="line"><span class="cl">      priceGoods,
+</span></span><span class="line"><span class="cl">      totalPrice,
+</span></span><span class="line"><span class="cl">      chooseGoods
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">})
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="全新的版本pinia">全新的版本<strong>pinia</strong></h3>
+<blockquote>
+<p><a href="https://pinia.vuejs.org/introduction.html" target="_blank" rel="noopener noreffer "><strong>Why should I use Pinia?</strong></a></p>
+</blockquote></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
