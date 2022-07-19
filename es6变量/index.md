@@ -53,21 +53,23 @@ function func(){
     console.log(i)
   }
 }
-func() //当函数被调用即产生了一个函数作用域
+//当函数被调用即产生了一个函数作用域
+func() // 1
 console.log(i) //error i 未定义
 ```
 ### 原理图
 {{< mermaid >}}
 stateDiagram-v2
     state window全局作用域 {
-        [*] --> func函数作用域
-
+        [*] --> func函数作用域 i=未定义
+        [*] --> 外层的console.log(i)
+        外层的console.log(i) --> i=未定义
         state func函数作用域 {
             [*] --> for和let构成块作用域
 
             state for和let构成块作用域 {
-                [*] --> i
-                i --> 往外作用域寻找
+                [*] --> console.log(i) i=1
+                console.log(i) --> i=1
             }
         }
     }
