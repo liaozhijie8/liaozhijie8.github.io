@@ -10,15 +10,7 @@
     <pubDate>Tue, 19 Jul 2022 09:58:57 &#43;0800</pubDate>
     <author>6eon</author>
     <guid>https://liaozhijie8.github.io/es6%E5%8F%98%E9%87%8F/</guid>
-    <description><![CDATA[var、let、const的几点区别 1、重复声明 let和const都不允许，var可以。为了规范编程几乎不用var，其实在vueAPI中也大]]></description>
-</item>
-<item>
-    <title>ES6新语法</title>
-    <link>https://liaozhijie8.github.io/es6%E6%96%B0%E8%AF%AD%E6%B3%95/</link>
-    <pubDate>Mon, 18 Jul 2022 17:09:09 &#43;0800</pubDate>
-    <author>6eon</author>
-    <guid>https://liaozhijie8.github.io/es6%E6%96%B0%E8%AF%AD%E6%B3%95/</guid>
-    <description><![CDATA[ES6新语法]]></description>
+    <description><![CDATA[var、let、const的几点区别 1、重复声明 let和const都不允许，var可以。为了规范编程减少使用var，其实在vueAPI中也大]]></description>
 </item>
 </channel>
 </rss>
