@@ -2,33 +2,32 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://liaozhijie8.github.io/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/categories/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/categories/css/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/flex%E5%B8%83%E5%B1%80/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/flex%E5%B8%83%E5%B1%80/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/posts/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/%E5%B8%83%E5%B1%80/</loc><lastmod>2022-07-21T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/es6/</loc><lastmod>2022-07-19T10:30:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/categories/javascript/</loc><lastmod>2022-07-19T10:30:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</loc><lastmod>2022-07-19T10:30:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</loc><lastmod>2022-07-19T10:30:20&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/api/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/vue/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/categories/vue/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/vue%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACapi/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/series/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/series/vue/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://liaozhijie8.github.io/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://liaozhijie8.github.io/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/api/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/categories/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/posts/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/vue/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/categories/vue/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/vue%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACapi/</loc><lastmod>2022-07-18T16:58:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/series/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/series/vue/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/</loc><lastmod>2022-07-18T16:34:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>https://liaozhijie8.github.io/about/</loc><lastmod>2022-07-19T22:52:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://liaozhijie8.github.io/categories/%E4%B9%A6%E7%AD%BE%E6%95%B4%E7%90%86/</loc><lastmod>2021-07-09T18:16:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/javascript%E5%AD%A6%E4%B9%A0%E4%B9%A6%E7%AD%BE/</loc><lastmod>2021-07-09T18:16:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/tags/%E5%AD%A6%E4%B9%A0%E4%B9%A6%E7%AD%BE/</loc><lastmod>2021-07-09T18:16:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/categories/css/</loc><lastmod>2021-06-02T16:47:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/%E5%90%84%E7%A7%8D%E5%B1%85%E4%B8%AD/</loc><lastmod>2021-06-02T16:47:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/%E5%B1%85%E4%B8%AD/</loc><lastmod>2021-06-02T16:47:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/%E5%B8%83%E5%B1%80/</loc><lastmod>2021-06-02T16:47:54&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/tags/flex%E5%B8%83%E5%B1%80/</loc><lastmod>2021-05-22T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/flex%E5%B8%83%E5%B1%80/</loc><lastmod>2021-05-22T09:30:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/tags/float%E5%B8%83%E5%B1%80/</loc><lastmod>2021-05-21T09:08:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/%E5%8F%8C%E9%A3%9E%E4%B8%8E%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E6%9C%AC%E8%B4%A8/</loc><lastmod>2021-05-21T09:08:58&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/es6%E5%8F%98%E9%87%8F/</loc><lastmod>2021-05-19T09:58:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/tags/es6%E6%96%B0%E7%89%B9%E6%80%A7/</loc><lastmod>2021-05-19T09:58:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://liaozhijie8.github.io/categories/javascript/</loc><lastmod>2021-05-19T09:58:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/tags/%E5%8F%98%E9%87%8F/</loc><lastmod>2021-05-19T09:58:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://liaozhijie8.github.io/series/%E5%8F%98%E9%87%8F/</loc><lastmod>2021-05-19T09:58:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
