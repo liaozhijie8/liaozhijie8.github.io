@@ -28,7 +28,7 @@
 |State | 存放全局数据 |
 |Getters | 简单计算处理State中的数据,再传递给组件 |
 |Mutations| 通过commit方法改变State中的数据,执行的是同步操作 |
-|Actions| 通过dispatch方法改变State中的数据,执行的是异步操作 |
+|Actions| 通过dispatch方法调用Mutations中的方法改变State中的数据,执行的是异步操作 |
 |Modules| 模块化|
 
 ### 使用步骤
