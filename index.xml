@@ -4,9 +4,25 @@
         <link>https://liaozhijie8.github.io/</link>
         <description>今天不学习,明天变废物</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>6666eon@gmail.com (6eon)</managingEditor>
-            <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Mon, 18 Jul 2022 16:58:15 &#43;0800</lastBuildDate>
+            <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Fri, 05 Aug 2022 01:48:11 &#43;0800</lastBuildDate>
             <atom:link href="https://liaozhijie8.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Git基础</title>
+    <link>https://liaozhijie8.github.io/git%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Fri, 05 Aug 2022 01:48:11 &#43;0800</pubDate>
+    <author>6eon</author>
+    <guid>https://liaozhijie8.github.io/git%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[git:分布式管理 一、基础概念 三个区域 工作区→暂存区→git仓库 三个状态 以修改、以暂存、已更新 安装配置 image.png 创建仓库 一、将现有目录初始化为仓库 1]]></description>
+</item>
+<item>
+    <title>JavaScript红宝书笔记</title>
+    <link>https://liaozhijie8.github.io/javascript%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Tue, 26 Jul 2022 20:34:12 &#43;0800</pubDate>
+    <author>6eon</author>
+    <guid>https://liaozhijie8.github.io/javascript%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[随便记录一下]]></description>
+</item>
+<item>
     <title>Vue不同版本API</title>
     <link>https://liaozhijie8.github.io/vue%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACapi/</link>
     <pubDate>Mon, 18 Jul 2022 16:58:15 &#43;0800</pubDate>
