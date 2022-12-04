@@ -4,9 +4,17 @@
         <link>https://liaozhijie8.github.io/</link>
         <description>今天不学习,明天变废物</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>6666eon@gmail.com (6eon)</managingEditor>
-            <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Fri, 05 Aug 2022 01:48:11 &#43;0800</lastBuildDate>
+            <webMaster>6666eon@gmail.com (6eon)</webMaster><lastBuildDate>Sat, 05 Nov 2022 02:33:35 &#43;0800</lastBuildDate>
             <atom:link href="https://liaozhijie8.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>前端工程化</title>
+    <link>https://liaozhijie8.github.io/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</link>
+    <pubDate>Sat, 05 Nov 2022 02:33:35 &#43;0800</pubDate>
+    <author>6eon</author>
+    <guid>https://liaozhijie8.github.io/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Git基础</title>
     <link>https://liaozhijie8.github.io/git%E5%9F%BA%E7%A1%80/</link>
     <pubDate>Fri, 05 Aug 2022 01:48:11 &#43;0800</pubDate>

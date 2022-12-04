@@ -24,7 +24,7 @@ image.png
 
 2、查下文件状态 git status 或者 git status -s
 
-![](/assets/image/image-20220711220331463.png)
+![](/static/image-20220711220331463.png)
 
 3、添加到暂存区 "git add ."或者 git add 指定名称
 

@@ -4,33 +4,33 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Git基础 - 6eon | 博客</title><meta name="Description" content="今天不学习,明天变废物"><meta property="og:title" content="Git基础" />
-<meta property="og:description" content="git:分布式管理 一、基础概念 三个区域 工作区→暂存区→git仓库 三个状态 以修改、以暂存、已更新 安装配置 image.png 创建仓库 一、将现有目录初始化为仓库 1" />
+        <title>前端工程化 - 6eon | 博客</title><meta name="Description" content="今天不学习,明天变废物"><meta property="og:title" content="前端工程化" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://liaozhijie8.github.io/git%E5%9F%BA%E7%A1%80/" /><meta property="og:image" content="https://liaozhijie8.github.io/tea.svg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-05T01:48:11+08:00" />
-<meta property="article:modified_time" content="2022-11-05T01:48:11+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta property="og:url" content="https://liaozhijie8.github.io/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" /><meta property="og:image" content="https://liaozhijie8.github.io/tea.svg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-05T02:33:35+08:00" />
+<meta property="article:modified_time" content="2022-11-05T02:33:35+08:00" /><meta property="og:site_name" content="我的网站" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://liaozhijie8.github.io/tea.svg"/>
 
-<meta name="twitter:title" content="Git基础"/>
-<meta name="twitter:description" content="git:分布式管理 一、基础概念 三个区域 工作区→暂存区→git仓库 三个状态 以修改、以暂存、已更新 安装配置 image.png 创建仓库 一、将现有目录初始化为仓库 1"/>
+<meta name="twitter:title" content="前端工程化"/>
+<meta name="twitter:description" content=""/>
 <meta name="application-name" content="6eon | 博客">
-<meta name="apple-mobile-web-app-title" content="6eon | 博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://liaozhijie8.github.io/git%E5%9F%BA%E7%A1%80/" /><link rel="prev" href="https://liaozhijie8.github.io/javascript%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/" /><link rel="next" href="https://liaozhijie8.github.io/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="6eon | 博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://liaozhijie8.github.io/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" /><link rel="prev" href="https://liaozhijie8.github.io/git%E5%9F%BA%E7%A1%80/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Git基础",
+        "headline": "前端工程化",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/liaozhijie8.github.io\/git%E5%9F%BA%E7%A1%80\/"
-        },"genre": "posts","keywords": "版本管理, 团队协助","wordcount":  885 ,
-        "url": "https:\/\/liaozhijie8.github.io\/git%E5%9F%BA%E7%A1%80\/","datePublished": "2022-08-05T01:48:11+08:00","dateModified": "2022-11-05T01:48:11+08:00","publisher": {
+            "@id": "https:\/\/liaozhijie8.github.io\/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96\/"
+        },"genre": "posts","keywords": "概念","wordcount":  52 ,
+        "url": "https:\/\/liaozhijie8.github.io\/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96\/","datePublished": "2022-11-05T02:33:35+08:00","dateModified": "2022-11-05T02:33:35+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -115,10 +115,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git基础</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>6eon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%85%A8%E6%B5%81%E7%A8%8B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>项目全流程</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-05">2022-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;885 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;<span id="/git%E5%9F%BA%E7%A1%80/" class="leancloud_visitors" data-flag-title="Git基础">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">前端工程化</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>6eon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>前端工程化</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-05">2022-11-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;52 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;<span id="/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" class="leancloud_visitors" data-flag-title="前端工程化">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -128,182 +128,27 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#一基础概念">一、基础概念</a>
+    <li>
       <ul>
-        <li><a href="#三个区域">三个区域</a></li>
-        <li><a href="#三个状态">三个状态</a></li>
-        <li><a href="#安装配置">安装配置</a></li>
-        <li><a href="#创建仓库">创建仓库</a>
+        <li>
           <ul>
-            <li><a href="#一将现有目录初始化为仓库">一、将现有目录初始化为仓库</a></li>
-            <li><a href="#二修改文件后提交流程">二、修改文件后提交流程</a></li>
-            <li><a href="#三撤销对文件的修改">三、撤销对文件的修改</a></li>
-            <li><a href="#四移除暂存区中的文件">四、移除暂存区中的文件</a></li>
-            <li><a href="#五直接提交到仓库">五、直接提交到仓库</a></li>
-            <li><a href="#六移除文件">六、移除文件</a></li>
-            <li><a href="#七忽略文件">七、忽略文件</a></li>
-            <li><a href="#八查看提交历史">八、查看提交历史</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#二远程仓库操作">二、远程仓库操作</a>
-      <ul>
-        <li><a href="#1绑定">1、绑定</a>
-          <ul>
-            <li>
-              <ul>
-                <li><a href="#https">HTTPS</a></li>
-                <li><a href="#ssh">SSH</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#2分支">2、分支</a>
-          <ul>
-            <li>
-              <ul>
-                <li><a href="#1创建分支">1）、创建分支</a></li>
-                <li><a href="#2合并分支">2）、合并分支</a></li>
-                <li><a href="#3删除分支">3）、删除分支</a></li>
-                <li><a href="#4分支冲突">4）、分支冲突</a></li>
-                <li><a href="#5将分支推送到远程仓库">5）、将分支推送到远程仓库</a></li>
-                <li><a href="#6跟踪远程仓库">6）、跟踪远程仓库</a></li>
-                <li><a href="#7拉取远程仓库">7）、拉取远程仓库</a></li>
-              </ul>
-            </li>
+            <li><a href="#前端工程化解决了什么问题">前端工程化解决了什么问题</a></li>
           </ul>
         </li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="git分布式管理">git:分布式管理</h1>
-<h2 id="一基础概念">一、基础概念</h2>
-<h3 id="三个区域">三个区域</h3>
-<p>工作区→暂存区→git仓库</p>
-<h3 id="三个状态">三个状态</h3>
-<p>以修改、以暂存、已更新</p>
-<h3 id="安装配置">安装配置</h3>
-<p>image.png</p>
-<h3 id="创建仓库">创建仓库</h3>
-<h4 id="一将现有目录初始化为仓库">一、将现有目录初始化为仓库</h4>
-<p>1、在项目目录中，打开git Bash，输入git init</p>
-<p>2、查下文件状态 git status 或者 git status -s</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/static/image-20220711220331463.png"
-        data-srcset="/static/image-20220711220331463.png, /static/image-20220711220331463.png 1.5x, /static/image-20220711220331463.png 2x"
-        data-sizes="auto"
-        alt="/static/image-20220711220331463.png"
-        title="/static/image-20220711220331463.png" /></p>
-<p>3、添加到暂存区 &ldquo;git add .&ldquo;或者 git add 指定名称</p>
-<p>4、提交更新git commit -m &ldquo;提交提示信息&rdquo;</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/assets/image/image-20220711221405180.png"
-        data-srcset="/assets/image/image-20220711221405180.png, /assets/image/image-20220711221405180.png 1.5x, /assets/image/image-20220711221405180.png 2x"
-        data-sizes="auto"
-        alt="/assets/image/image-20220711221405180.png"
-        title="/assets/image/image-20220711221405180.png" /></p>
-<h4 id="二修改文件后提交流程">二、修改文件后提交流程</h4>
-<p>如果已经添加到更新的文件发生了修改，可以用git status -s 查看</p>
-<p>然后再次执行git add .提交更新到暂存区，利用git commit -m 提交更新</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/assets/image/image-20220711223034666.png"
-        data-srcset="/assets/image/image-20220711223034666.png, /assets/image/image-20220711223034666.png 1.5x, /assets/image/image-20220711223034666.png 2x"
-        data-sizes="auto"
-        alt="/assets/image/image-20220711223034666.png"
-        title="/assets/image/image-20220711223034666.png" /></p>
-<h4 id="三撤销对文件的修改">三、撤销对文件的修改</h4>
-<p>注意：此时的文件并没有提交到更新仓库，撤销将是不可逆的，一般很少用的</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/assets/image/image-20220711223634898.png"
-        data-srcset="/assets/image/image-20220711223634898.png, /assets/image/image-20220711223634898.png 1.5x, /assets/image/image-20220711223634898.png 2x"
-        data-sizes="auto"
-        alt="/assets/image/image-20220711223634898.png"
-        title="/assets/image/image-20220711223634898.png" /></p>
-<h4 id="四移除暂存区中的文件">四、移除暂存区中的文件</h4>
-<p>git reset HEAD  + 指定文件名称 或者.移除全部文件出暂存区</p>
-<h4 id="五直接提交到仓库">五、直接提交到仓库</h4>
-<p>git commit -a -m &ldquo;描述消息&rdquo;</p>
-<h4 id="六移除文件">六、移除文件</h4>
-<p>1、工作区（本地）和仓库的文件都一起移除（不可逆）</p>
-<p>git rm -f &ldquo;文件名&rdquo;</p>
-<p>2、仓库文件移除，只保留工作区</p>
-<p>git rm &ndash;cached &ldquo;文件名&rdquo;</p>
-<h4 id="七忽略文件">七、忽略文件</h4>
-<p>参考vue脚手架自带文件</p>
-<h4 id="八查看提交历史">八、查看提交历史</h4>
-<p>git log -2 表示查看最近俩条</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/assets/image/image-20220712011439346.png"
-        data-srcset="/assets/image/image-20220712011439346.png, /assets/image/image-20220712011439346.png 1.5x, /assets/image/image-20220712011439346.png 2x"
-        data-sizes="auto"
-        alt="/assets/image/image-20220712011439346.png"
-        title="/assets/image/image-20220712011439346.png" /></p>
-<p>回退版本 git reset &ndash;hard +对应的commit号</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/assets/image/image-20220712012337580.png"
-        data-srcset="/assets/image/image-20220712012337580.png, /assets/image/image-20220712012337580.png 1.5x, /assets/image/image-20220712012337580.png 2x"
-        data-sizes="auto"
-        alt="/assets/image/image-20220712012337580.png"
-        title="/assets/image/image-20220712012337580.png" /></p>
-<p>回到回退前的版本号 先查看所有操作日记，包括已经回退了的  git reflog</p>
-<p>git reset &ndash;hard 回退到指定版本</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/assets/image/image-20220712012621158.png"
-        data-srcset="/assets/image/image-20220712012621158.png, /assets/image/image-20220712012621158.png 1.5x, /assets/image/image-20220712012621158.png 2x"
-        data-sizes="auto"
-        alt="/assets/image/image-20220712012621158.png"
-        title="/assets/image/image-20220712012621158.png" /></p>
-<h2 id="二远程仓库操作">二、远程仓库操作</h2>
-<h3 id="1绑定">1、绑定</h3>
-<h5 id="https">HTTPS</h5>
-<p>：不需要配置但是每次访问都需要输入github账号密码。</p>
-<p>1）、绑定仓库</p>
-<p>git remote add origin <a href="https://github.com/liaozhijie8/vue3.0_project_zhihu.git" target="_blank" rel="noopener noreffer ">https://github.com/liaozhijie8/vue3.0_project_zhihu.git</a>
-git branch -M main
-git push -u origin main</p>
-<p>2）、后续的提交</p>
-<p>利用git push 将本地commit的内容提交到远程仓库</p>
-<h5 id="ssh">SSH</h5>
-<p>：需要进行额外的配置，之后每次访问都不需要账号密码</p>
-<p>1）、获取key</p>
-<p><a href="http://t.zoukankan.com/emily1130-p-7503546.html" target="_blank" rel="noopener noreffer ">http://t.zoukankan.com/emily1130-p-7503546.html</a></p>
-<p>2)、按照提示配置仓库</p>
-<p>git push</p>
-<h3 id="2分支">2、分支</h3>
-<h5 id="1创建分支">1）、创建分支</h5>
-<p>git branch 分支名称 →git checkout 分支名称 切换分支</p>
-<p>git checkout -b 分支名称 &mdash;&ndash;新建一个分支并切换到改分支下</p>
-<h5 id="2合并分支">2）、合并分支</h5>
-<p>1、先切换到上一级分支 git checkout 分支名
-2、合并分支 git merge 分支名</p>
-<h5 id="3删除分支">3）、删除分支</h5>
-<p><strong>先回到上一层分支中，然后再用git branch -d 下一层分支名称删除分支</strong></p>
-<h5 id="4分支冲突">4）、分支冲突</h5>
-<p>打开冲突文件，手动解决冲突</p>
-<h5 id="5将分支推送到远程仓库">5）、将分支推送到远程仓库</h5>
-<h5 id="6跟踪远程仓库">6）、跟踪远程仓库</h5>
-<p>参考GitHub</p>
-<h5 id="7拉取远程仓库">7）、拉取远程仓库</h5>
-<p>git pull</p>
-<p>8）、删除远程仓库的分支</p>
-<p><strong>git push origin &ndash;delete 分支名称</strong></p>
-</div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><blockquote>
+<p>前端工程化概念</p>
+</blockquote>
+<h4 id="前端工程化解决了什么问题">前端工程化解决了什么问题</h4>
+<ul>
+<li>js全局作用域冲突</li>
+<li><a href="https://www.w3cschool.cn/bdl2e3/9tsv12j2.html" target="_blank" rel="noopener noreffer ">编码规范问题</a></li>
+<li>资源合并和压缩问题</li>
+<li>高版本js预发降级</li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -318,14 +163,13 @@ git push -u origin main</p>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a>,&nbsp;<a href="/tags/%E5%9B%A2%E9%98%9F%E5%8D%8F%E5%8A%A9/">团队协助</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%A6%82%E5%BF%B5/">概念</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/javascript%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="prev" rel="prev" title="JavaScript红宝书笔记"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>JavaScript红宝书笔记</a>
-            <a href="/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" class="next" rel="next" title="前端工程化">前端工程化<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/git%E5%9F%BA%E7%A1%80/" class="prev" rel="prev" title="Git基础"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Git基础</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
