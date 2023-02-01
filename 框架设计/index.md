@@ -27,7 +27,7 @@
 04 - 当点击时弹出提示：ok
 ```
 对应的代码:
-```
+```js
 01 $('#app') // 获取 div
 02   .text('hello world') // 设置文本内容
 03   .on('click', () => { alert('ok') }) // 绑定点击事件
@@ -35,7 +35,7 @@
 * 可以看到，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”，这符合我们的逻辑直觉。
 
 　　那么，什么是声明式框架呢？与命令式框架更加关注过程不同，声明式框架更加关注结果。结合 Vue.js，我们来看看如何实现上面自然语言描述的功能：
-```
+```js
 01 <div @click="() => alert('ok')">hello world</div>
 ```
 * 这段类 HTML 的模板就是 Vue.js 实现如上功能的方式。可以看到，我们提供的是一个“结果”，至于如何实现这个“结果”，我们并不关心，Vue.js 的内部实现采用的是命令式的，而暴露给用户的是声明式。
@@ -43,18 +43,18 @@
 #### 性能与可维护性的权衡
 先说结论:***声明式代码的性能不优于命令式代码的性能***。
 * 假设我们要修改div中的文本,采用命令式可以这样直接修改，并且没有比这个更简单的方法了，
-```
+```js
 01 div.textContent = 'hello vue3' // 直接修改
 ```
 * 可以看到，理论上命令式代码可以做到极致的性能优化，因为我们明确知道哪些发生了变更，只做必要的修改就行了。但是声明式代码不一定能做到这一点，因为它描述的是结果：
-```
+```js
 01 <!-- 之前： -->
 02 <div @click="() => alert('ok')">hello world</div>
 03 <!-- 之后： -->
 04 <div @click="() => alert('ok')">hello vue3</div>
 ```
 * 对于框架来说，为了实现最优的更新性能，它需要找到前后的差异并只更新变化的地方，但是最终完成这次更新的代码仍然是：
-```
+```js
 01 div.textContent = 'hello vue3'
 ```  
 >如果我们把直接修改的性能消耗定义为 A，把找出差异的性能消耗定义为 B，那么有：
@@ -66,6 +66,9 @@
 
 #### 虚拟DOM
 ***声明式代码的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗***，因此，如果我们能够最小化找出差异的性能消耗，就可以让声明式代码的性能无限接近命令式代码的性能。而所谓的虚拟 DOM，就是为了最小化找出差异这一步的性能消耗而出现的。
+**虚拟DOM通过状态生成一个虚拟节点树，然后使用虚拟节点树进行渲染。在渲染之前，会使用新生成的虚拟节点树和上一次生成的虚拟节点树进行对比，只渲染不同的部分。**
+
+* 虚拟节点树其实是由组件树建立起来的整个虚拟节点（Virtual Node，也经常简写为vnode）树。
 * 虚拟DOM能够让我们不用付出太多的努力（写声明式代码），还能够保证应用程序的性能下限，让应用程序的性能不至于太差，甚至想办法逼近命令式代码的性能
 {{< figure src="http://www.ituring.com.cn/figures/2022/Vuejsdesign/005.jpg" title="innerHTML、虚拟 DOM 以及原生 JavaScript 在更新页面时的性能" >}}
 * 原生 DOM 操作方法的心智负担最大，因为你要手动创建、删除、修改大量的 DOM 元素。但它的性能是最高的，不过为了使其性能最佳，我们同样要承受巨大的心智负担。另外，以这种方式编写的代码，可维护性也极差。而对于 innerHTML 来说，由于我们编写页面的过程有一部分是通过拼接 HTML 字符串来实现的，这有点儿接近声明式的意思，但是拼接字符串总归也是有一定心智负担的，而且对于事件绑定之类的事情，我们还是要使用原生 JavaScript 来处理。如果 innerHTML 模板很大，则其更新页面的性能最差，尤其是在只有少量更新时。最后，我们来看看虚拟 DOM，它是声明式的，因此心智负担小，可维护性强，性能虽然比不上极致优化的原生 JavaScript，但是在保证心智负担和可维护性的前提下相当不错。
@@ -74,7 +77,7 @@
 ##### 运行时
 * 编写一个Render函数，用户可以为该函数提供一个树型结构的数据对象，然后使用Render函数，根据该对象递归地将数据渲染成 DOM 元素。
 * 数据对象如下:
-```
+```js
 01 const obj = {
 02   tag: 'div',
 03   children: [
@@ -83,7 +86,7 @@
 06 }
 ```
 * Render函数
-```
+```js
 01 function Render(obj, root) {
 02   const el = document.createElement(obj.tag)
 03   if (typeof obj.children === 'string') {
@@ -100,7 +103,7 @@
 ```
 
 * 把数据对象交给Render函数处理
-```
+```js
 01 const obj = {
 02   tag: 'div',
 03   children: [
@@ -118,7 +121,7 @@
 {{< figure src="http://www.ituring.com.cn/figures/2022/Vuejsdesign/006.jpg" title="把 HTML 标签编译成树型结构的数据对象" >}}
 
 * Compiler程序的作用就是把 HTML 字符串编译成树型结构的数据对象，让用户分别调用 Compiler 函数和 Render 函数：
-```
+```js
 01 const html = `
 02 <div>
 03   <span>hello world</span>
@@ -146,9 +149,211 @@
 实际上，在这三个方向上业内都有探索，其中 Svelte 就是纯编译时的框架，但是它的真实性能可能达不到理论高度。Vue.js 3 仍然保持了运行时 + 编译时的架构，在保持灵活性的基础上能够尽可能地去优化。等到后面讲解 Vue.js 3 的编译优化相关内容时，你会看到 Vue.js 3 在保留运行时的情况下，其性能甚至不输纯编译时的框架。
 
 
+### Vue渲染视图过程
+* 在Vue.js中，我们使用模板来描述状态与DOM之间的映射关系。Vue.js通过编译将模板转换成渲染函数（render），执行渲染函数就可以得到一个虚拟节点树，使用这个虚拟节点树就可以渲染页面，
+{{< figure src="http://www.ituring.com.cn/figures/2020/Vuejs/05-004.png" title="模板转换成视图的过程" >}}
 
+* 虚拟DOM的终极目标是将虚拟节点（vnode）渲染到视图上。但是如果直接使用虚拟节点覆盖旧节点的话，会有很多不必要的DOM操作。
+* 为了避免不必要的DOM操作，虚拟DOM在虚拟节点映射到视图的过程中，将虚拟节点与上一次渲染视图所使用的旧虚拟节点（oldVnode）做对比，找出真正需要更新的节点来进行DOM操作，从而避免操作其他无任何改动的DOM。
+{{< figure src="http://www.ituring.com.cn/figures/2020/Vuejs/05-005.png" title="虚拟DOM的执行过程" >}}
+>1）提供与真实DOM节点所对应的虚拟节点vnode。
+>2）将虚拟节点vnode和旧虚拟节点oldVnode进行比对，然后更新视图。
+#### VNode
+##### 什么是VNode
+它是Vue.js中存在的一个类，使用它可以实例化不同类型的vnode实例，而不同类型的vnode实例各自表示不同类型的DOM元素。
 
+例如，DOM元素有元素节点、文本节点和注释节点等，vnode实例也会对应着有元素节点、文本节点和注释节点等。
+```js
+01  export default class VNode {
+02    constructor (tag, data, children, text, elm, context, componentOptions, asyncFactory) {
+03      this.tag = tag
+04      this.data = data
+05      this.children = children
+06      this.text = text
+07      this.elm = elm
+08      this.ns = undefined
+09      this.context = context
+10      this.functionalContext = undefined
+11      this.functionalOptions = undefined
+12      this.functionalScopeId = undefined
+13      this.key = data && data.key
+14      this.componentOptions = componentOptions
+15      this.componentInstance = undefined
+16      this.parent = undefined
+17      this.raw = false
+18      this.isStatic = false
+19      this.isRootInsert = true
+20      this.isComment = false
+21      this.isCloned = false
+22      this.isOnce = false
+23      this.asyncFactory = asyncFactory
+24      this.asyncMeta = undefined
+25      this.isAsyncPlaceholder = false
+26    }
+27  
+28    get child () {
+29      return this.componentInstance
+30    }
+31  }
+```
+vnode可以理解成节点描述对象，它描述了应该怎样去创建真实的DOM节点。
+vnode表示一个真实的DOM元素，所有真实的DOM节点都使用vnode创建并插入到页面中:**渲染视图的过程是先创建vnode，然后再使用vnode去生成真实的DOM元素，最后插入到页面渲染视图。**
+{{< figure src="http://www.ituring.com.cn/figures/2020/Vuejs/06-001.png" title="VNode创建DOM并插入到视图" >}}
 
+##### VNode的作用
 
+* 由于每次渲染视图时都是先创建vnode，然后使用它创建真实DOM插入到页面中，所以可以将上一次渲染视图时所创建的vnode缓存起来，之后每当需要重新渲染视图时，将新创建的vnode和上一次缓存的vnode进行对比，查看它们之间有哪些不一样的地方，找出这些不一样的地方并基于此去修改真实的DOM。
+* * Vue.js目前对状态的侦测策略采用了中等粒度。当状态发生变化时，只通知到组件级别，然后组件内使用虚拟DOM来渲染视图。
+也就是说，只要组件使用的众多状态中有一个发生了变化，那么整个组件就要重新渲染。
 
+如果组件只有一个节点发生了变化，那么重新渲染整个组件的所有节点，很明显会造成很大的性能浪费。因此，对vnode进行缓存，并将上一次缓存的vnode和当前新创建的vnode进行对比，只更新发生变化的节点就变得尤为重要。这也是vnode最重要的一个作用。
 
+#### patch
+* 它虚拟DOM最核心的部分，可以将vnode渲染成真实的DOM。
+
+patch也可以叫作patching算法，通过它渲染真实DOM时，并不是暴力覆盖原有DOM，而是比对新旧两个vnode之间有哪些不同，然后根据对比结果找出需要更新的节点进行更新。这一点从名字就可以看出，patch本身就有补丁、修补等意思，其实际作用是在现有DOM上进行修改来实现更新视图的目的。
+
+之所以要这么做，主要是因为DOM操作的执行速度远不如JavaScript的运算速度快。因此，把大量的DOM操作搬运到JavaScript中，使用patching算法来计算出真正需要更新的节点，最大限度地减少DOM操作，从而显著提升性能。这本质上其实是使用JavaScript的运算成本来替换DOM操作的执行成本，而JavaScript的运算速度要比DOM快很多，这样做很划算，所以才会有虚拟DOM。
+
+* 创建新增的节点；
+* 删除已经废弃的节点；
+* 修改需要更新的节点。
+
+#### 模板编译原理
+
+* 模板编译成渲染函数有三部分内容：先将模板解析成AST，然后遍历AST标记静态节点，最后使用AST生成代码字符串。这三部分内容分别对应三个模块：解析器、优化器和代码生成器。
+{{< figure src="http://www.ituring.com.cn/figures/2020/Vuejs/08-001.png" title="模板编译在整个渲染过程中的位置" >}}
+* Vue.js提供了模板语法，允许我们声明式地描述状态和DOM之间的绑定关系，然后通过模板来生成真实DOM并将其呈现在用户界面上。
+
+* 在底层实现上，Vue.js会将模板编译成虚拟DOM渲染函数。当应用内部的状态发生变化时，Vue.js可以结合响应式系统，聪明地找出最小数量的组件进行重新渲染以及最少量地进行DOM操作
+
+##### 解析器
+>解析器的作用是通过模板得到AST（抽象语法树）。
+生成AST的过程需要借助HTML解析器，当HTML解析器触发不同的钩子函数时，我们可以构建出不同的节点。随后，我们可以通过栈来得到当前正在构建的节点的父节点，然后将构建出的节点添加到父节点的下面。最终，当HTML解析器运行完毕后，我们就可以得到一个完整的带DOM层级关系的AST。HTML解析器的内部原理是一小段一小段地截取模板字符串，每截取一小段字符串，就会根据截取出来的字符串类型触发不同的钩子函数，直到模板字符串截空停止运行。文本分两种类型，不带变量的纯文本和带变量的文本，后者需要使用文本解析器进行二次加工。
+* 解析器内部也分了好几个子解析器，比如HTML解析器、文本解析器以及过滤器解析器，其中最主要的是HTML解析器
+
+模板:
+```js
+01  <div>
+02    <p>{{name}}</p>
+03  </div>
+```
+转换成AST后：
+```js
+01  {
+02    tag: "div"
+03    type: 1,
+04    staticRoot: false,
+05    static: false,
+06    plain: true,
+07    parent: undefined,
+08    attrsList: [],
+09    attrsMap: {},
+10    children: [
+11      {
+12        tag: "p"
+13        type: 1,
+14        staticRoot: false,
+15        static: false,
+16        plain: true,
+17        parent: {tag: "div", ...},
+18        attrsList: [],
+19        attrsMap: {},
+20        children: [{
+21          type: 2,
+22          text: "{{name}}",
+23          static: false,
+24          expression: "_s(name)"
+25        }]
+26      }
+27    ]
+28  }
+```
+* AST是用JavaScript中的对象来描述一个节点，一个对象表示一个节点，对象中的属性用来保存节点所需的各种数据。比如，parent属性保存了父节点的描述对象，children属性是一个数组，里面保存了一些子节点的描述对象。再比如，type属性表示一个节点的类型等。当很多个独立的节点通过parent属性和children属性连在一起时，就变成了一个树，而这样一个用对象描述的节点树其实就是AST。
+
+##### 优化器
+优化器的作用是在AST中找出静态子树并打上标记，这样做有两个好处：
+
+每次重新渲染时，不需要为静态子树创建新节点；
+在虚拟DOM中打补丁的过程可以跳过。
+优化器的内部实现其实主要分为两个步骤：
+
+(1) 在AST中找出所有静态节点并打上标记；
+
+(2) 在AST中找出所有静态根节点并打上标记。
+
+通过递归的方式从上向下标记静态节点时，如果一个节点被标记为静态节点，但它的子节点却被标记为动态节点，就说明该节点不是静态节点，可以将它改为动态节点。静态节点的特征是它的子节点必须是静态节点。
+
+标记完静态节点之后需要标记静态根节点，其标记方式也是使用递归的方式从上向下寻找，在寻找的过程中遇到的第一个静态节点就为静态根节点，同时不再向下继续查找。
+
+但有两种情况比较特殊：一种是如果一个静态根节点的子节点只有一个文本节点，那么不会将它标记成静态根节点，即便它也属于静态根节点；另一种是如果找到的静态根节点是一个没有子节点的静态节点，那么也不会将它标记为静态根节点。因为这两种情况下，优化成本大于收益。
+
+##### 代码生成器
+>代码生成器是模板编译的最后一步，它的作用是将AST转换成渲染函数中的内容，这个内容可以称为代码字符串。代码字符串可以被包装在函数中执行，这个函数就是我们通常所说的渲染函数。**渲染函数被执行之后，可以生成一份VNode，而虚拟DOM可以通过这个VNode来渲染视图**
+
+###### 流程
+1、模板:
+```js
+01  <div id="el">Hello {{name}}</div>
+```
+2、转换成AST并且经过优化器的优化后:
+```js
+01  {
+02    'type': 1,
+03    'tag': 'div',
+04    'attrsList': [
+05      {
+06        'name': 'id',
+07        'value': 'el'
+08      }
+09    ],
+10    'attrsMap': {
+11      'id': 'el'
+12    },
+13    'children': [
+14      {
+15        'type': 2,
+16        'expression': '"Hello "+_s(name)',
+17        'text': 'Hello {{name}}',
+18        'static': false
+19      }
+20    ],
+21    'plain': false,
+22    'attrs': [
+23      {
+24        'name': 'id',
+25        'value': '"el"'
+26      }
+27    ],
+28    'static': false,
+29    'staticRoot': false
+30  }
+```
+3、代码生成器可以通过上面这个AST来生成代码字符串：
+```js
+ 'with(this){return _c("div",{attrs:{"id":"el"}},[_v("Hello "+_s(name))])}'
+```
+格式化后:
+```js
+01  with (this) {
+02    return _c(
+03      "div",
+04      {
+05        attrs:{"id": "el"}
+06      },
+07      [
+08        _v("Hello "+_s(name))
+09      ]
+10    )
+11  }
+```
+仔细观察生成后的代码字符串，我们会发现，这其实是一个嵌套的函数调用。函数 _c的参数中执行了函数 _v，而函数 _v的参数中又执行了函数 _s。
+
+代码字符串中的 _c其实是createElement的别名。createElement是虚拟DOM中所提供的方法，它的作用是创建虚拟节点，有三个参数，分别是：
+
+标签名
+一个包含模板相关属性的数据对象
+子节点列表
+调用createElement方法，我们可以得到一个VNode。
+
+这也就知道了渲染函数可以生成VNode的原因：渲染函数其实是执行了createElement，而createElement可以创建一个VNode。

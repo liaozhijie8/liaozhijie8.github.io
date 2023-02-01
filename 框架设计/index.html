@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/liaozhijie8.github.io\/%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1\/"
-        },"genre": "posts","keywords": "","wordcount":  3613 ,
+        },"genre": "posts","keywords": "","wordcount":  7307 ,
         "url": "https:\/\/liaozhijie8.github.io\/%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1\/","datePublished": "2023-01-31T18:21:48+08:00","dateModified": "2023-01-31T18:21:48+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -117,8 +117,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">框架设计</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>6eon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/vue/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vue</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-31">2023-01-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3613 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;<span id="/%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/" class="leancloud_visitors" data-flag-title="框架设计">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-31">2023-01-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;7307 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;15 minutes&nbsp;<span id="/%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/" class="leancloud_visitors" data-flag-title="框架设计">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -146,6 +146,28 @@
                 <li><a href="#编译时">编译时</a></li>
                 <li><a href="#纯编译时">纯编译时</a></li>
                 <li><a href="#总结">总结</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#vue渲染视图过程">Vue渲染视图过程</a>
+          <ul>
+            <li><a href="#vnode">VNode</a>
+              <ul>
+                <li><a href="#什么是vnode">什么是VNode</a></li>
+                <li><a href="#vnode的作用">VNode的作用</a></li>
+              </ul>
+            </li>
+            <li><a href="#patch">patch</a></li>
+            <li><a href="#模板编译原理">模板编译原理</a>
+              <ul>
+                <li><a href="#解析器">解析器</a></li>
+                <li><a href="#优化器">优化器</a></li>
+                <li><a href="#代码生成器">代码生成器</a>
+                  <ul>
+                    <li><a href="#流程">流程</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
           </ul>
@@ -212,10 +234,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 $(&#39;#app&#39;) // 获取 div
-</span></span><span class="line"><span class="cl">02   .text(&#39;hello world&#39;) // 设置文本内容
-</span></span><span class="line"><span class="cl">03   .on(&#39;click&#39;, () =&gt; { alert(&#39;ok&#39;) }) // 绑定点击事件
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span> <span class="c1">// 获取 div
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">02</span>   <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span> <span class="c1">// 设置文本内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">03</span>   <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;ok&#39;</span><span class="p">)</span> <span class="p">})</span> <span class="c1">// 绑定点击事件
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>可以看到，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”，这符合我们的逻辑直觉。</li>
@@ -226,7 +248,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 &lt;div @click=&#34;() =&gt; alert(&#39;ok&#39;)&#34;&gt;hello world&lt;/div&gt;
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;() =&gt; alert(&#39;ok&#39;)&#34;</span><span class="o">&gt;</span><span class="nx">hello</span> <span class="nx">world</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -242,8 +264,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 div.textContent = &#39;hello vue3&#39; // 直接修改
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="nx">div</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;hello vue3&#39;</span> <span class="c1">// 直接修改
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>可以看到，理论上命令式代码可以做到极致的性能优化，因为我们明确知道哪些发生了变更，只做必要的修改就行了。但是声明式代码不一定能做到这一点，因为它描述的是结果：</li>
@@ -256,10 +278,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 &lt;!-- 之前： --&gt;
-</span></span><span class="line"><span class="cl">02 &lt;div @click=&#34;() =&gt; alert(&#39;ok&#39;)&#34;&gt;hello world&lt;/div&gt;
-</span></span><span class="line"><span class="cl">03 &lt;!-- 之后： --&gt;
-</span></span><span class="line"><span class="cl">04 &lt;div @click=&#34;() =&gt; alert(&#39;ok&#39;)&#34;&gt;hello vue3&lt;/div&gt;
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="c">&lt;!--</span> <span class="nx">之前</span><span class="err">：</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;() =&gt; alert(&#39;ok&#39;)&#34;</span><span class="o">&gt;</span><span class="nx">hello</span> <span class="nx">world</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span> <span class="c">&lt;!--</span> <span class="nx">之后</span><span class="err">：</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;() =&gt; alert(&#39;ok&#39;)&#34;</span><span class="o">&gt;</span><span class="nx">hello</span> <span class="nx">vue3</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -270,7 +292,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 div.textContent = &#39;hello vue3&#39;
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="nx">div</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;hello vue3&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -281,8 +303,10 @@
 </blockquote>
 <p>　　既然在性能层面命令式代码是更好的选择，那么为什么 Vue.js 要选择声明式的设计方案呢？原因就在于声明式代码的可维护性更强。从上面例子的代码中我们也可以感受到，在采用命令式代码开发的时候，我们需要维护实现目标的整个过程，包括要手动完成 DOM 元素的创建、更新、删除等工作。而声明式代码展示的就是我们要的结果，看上去更加直观，至于做事儿的过程，并不需要我们关心，Vue.js 都为我们封装好了。</p>
 <h4 id="虚拟dom">虚拟DOM</h4>
-<p><em><strong>声明式代码的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗</strong></em>，因此，如果我们能够最小化找出差异的性能消耗，就可以让声明式代码的性能无限接近命令式代码的性能。而所谓的虚拟 DOM，就是为了最小化找出差异这一步的性能消耗而出现的。</p>
+<p><em><strong>声明式代码的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗</strong></em>，因此，如果我们能够最小化找出差异的性能消耗，就可以让声明式代码的性能无限接近命令式代码的性能。而所谓的虚拟 DOM，就是为了最小化找出差异这一步的性能消耗而出现的。
+<strong>虚拟DOM通过状态生成一个虚拟节点树，然后使用虚拟节点树进行渲染。在渲染之前，会使用新生成的虚拟节点树和上一次生成的虚拟节点树进行对比，只渲染不同的部分。</strong></p>
 <ul>
+<li>虚拟节点树其实是由组件树建立起来的整个虚拟节点（Virtual Node，也经常简写为vnode）树。</li>
 <li>虚拟DOM能够让我们不用付出太多的努力（写声明式代码），还能够保证应用程序的性能下限，让应用程序的性能不至于太差，甚至想办法逼近命令式代码的性能
 <figure><img src="http://www.ituring.com.cn/figures/2022/Vuejsdesign/005.jpg"/><figcaption>
             <h4>innerHTML、虚拟 DOM 以及原生 JavaScript 在更新页面时的性能</h4>
@@ -308,12 +332,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 const obj = {
-</span></span><span class="line"><span class="cl">02   tag: &#39;div&#39;,
-</span></span><span class="line"><span class="cl">03   children: [
-</span></span><span class="line"><span class="cl">04     { tag: &#39;span&#39;, children: &#39;hello world&#39; }
-</span></span><span class="line"><span class="cl">05   ]
-</span></span><span class="line"><span class="cl">06 }
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>   <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;div&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>   <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>     <span class="p">{</span> <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="nx">children</span><span class="o">:</span> <span class="s1">&#39;hello world&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>   <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span> <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -336,19 +360,19 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 function Render(obj, root) {
-</span></span><span class="line"><span class="cl">02   const el = document.createElement(obj.tag)
-</span></span><span class="line"><span class="cl">03   if (typeof obj.children === &#39;string&#39;) {
-</span></span><span class="line"><span class="cl">04     const text = document.createTextNode(obj.children)
-</span></span><span class="line"><span class="cl">05     el.appendChild(text)
-</span></span><span class="line"><span class="cl">06   } else if (obj.children) {
-</span></span><span class="line"><span class="cl">07     // 数组，递归调用 Render，使用 el 作为 root 参数
-</span></span><span class="line"><span class="cl">08     obj.children.forEach((child) =&gt; Render(child, el))
-</span></span><span class="line"><span class="cl">09   }
-</span></span><span class="line"><span class="cl">10
-</span></span><span class="line"><span class="cl">11   // 将元素添加到 root
-</span></span><span class="line"><span class="cl">12   root.appendChild(el)
-</span></span><span class="line"><span class="cl">13 }
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="kd">function</span> <span class="nx">Render</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>   <span class="kr">const</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">tag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>   <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">children</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>     <span class="kr">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>     <span class="nx">el</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>     <span class="c1">// 数组，递归调用 Render，使用 el 作为 root 参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">08</span>     <span class="nx">obj</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">child</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">Render</span><span class="p">(</span><span class="nx">child</span><span class="p">,</span> <span class="nx">el</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>   <span class="c1">// 将元素添加到 root
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">12</span>   <span class="nx">root</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">13</span> <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -366,14 +390,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 const obj = {
-</span></span><span class="line"><span class="cl">02   tag: &#39;div&#39;,
-</span></span><span class="line"><span class="cl">03   children: [
-</span></span><span class="line"><span class="cl">04     { tag: &#39;span&#39;, children: &#39;hello world&#39; }
-</span></span><span class="line"><span class="cl">05   ]
-</span></span><span class="line"><span class="cl">06 }
-</span></span><span class="line"><span class="cl">07 // 渲染到 body 下
-</span></span><span class="line"><span class="cl">08 Render(obj, document.body)
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>   <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;div&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>   <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>     <span class="p">{</span> <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="nx">children</span><span class="o">:</span> <span class="s1">&#39;hello world&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>   <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span> <span class="c1">// 渲染到 body 下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">08</span> <span class="nx">Render</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -402,15 +426,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01 const html = `
-</span></span><span class="line"><span class="cl">02 &lt;div&gt;
-</span></span><span class="line"><span class="cl">03   &lt;span&gt;hello world&lt;/span&gt;
-</span></span><span class="line"><span class="cl">04 &lt;/div&gt;
-</span></span><span class="line"><span class="cl">05 `
-</span></span><span class="line"><span class="cl">06 // 调用 Compiler 编译得到树型结构的数据对象
-</span></span><span class="line"><span class="cl">07 const obj = Compiler(html)
-</span></span><span class="line"><span class="cl">08 // 再调用 Render 进行渲染
-</span></span><span class="line"><span class="cl">09 Render(obj, document.body)
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span> <span class="kr">const</span> <span class="nx">html</span> <span class="o">=</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">02 &lt;div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">03   &lt;span&gt;hello world&lt;/span&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">04 &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">05 `</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span> <span class="c1">// 调用 Compiler 编译得到树型结构的数据对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">07</span> <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">Compiler</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span> <span class="c1">// 再调用 Render 进行渲染
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">09</span> <span class="nx">Render</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -433,7 +457,374 @@
 <li>纯编译时的框架
 也可以分析用户提供的内容。由于不需要任何运行时，而是直接编译成可执行的 JavaScript 代码，因此性能可能会更好，但是这种做法有损灵活性，即用户提供的内容必须编译后才能用。</li>
 </ul>
-<p>实际上，在这三个方向上业内都有探索，其中 Svelte 就是纯编译时的框架，但是它的真实性能可能达不到理论高度。Vue.js 3 仍然保持了运行时 + 编译时的架构，在保持灵活性的基础上能够尽可能地去优化。等到后面讲解 Vue.js 3 的编译优化相关内容时，你会看到 Vue.js 3 在保留运行时的情况下，其性能甚至不输纯编译时的框架。</p></div><div class="post-footer" id="post-footer">
+<p>实际上，在这三个方向上业内都有探索，其中 Svelte 就是纯编译时的框架，但是它的真实性能可能达不到理论高度。Vue.js 3 仍然保持了运行时 + 编译时的架构，在保持灵活性的基础上能够尽可能地去优化。等到后面讲解 Vue.js 3 的编译优化相关内容时，你会看到 Vue.js 3 在保留运行时的情况下，其性能甚至不输纯编译时的框架。</p>
+<h3 id="vue渲染视图过程">Vue渲染视图过程</h3>
+<ul>
+<li>
+<p>在Vue.js中，我们使用模板来描述状态与DOM之间的映射关系。Vue.js通过编译将模板转换成渲染函数（render），执行渲染函数就可以得到一个虚拟节点树，使用这个虚拟节点树就可以渲染页面，
+<figure><img src="http://www.ituring.com.cn/figures/2020/Vuejs/05-004.png"/><figcaption>
+            <h4>模板转换成视图的过程</h4>
+        </figcaption>
+</figure>
+</p>
+</li>
+<li>
+<p>虚拟DOM的终极目标是将虚拟节点（vnode）渲染到视图上。但是如果直接使用虚拟节点覆盖旧节点的话，会有很多不必要的DOM操作。</p>
+</li>
+<li>
+<p>为了避免不必要的DOM操作，虚拟DOM在虚拟节点映射到视图的过程中，将虚拟节点与上一次渲染视图所使用的旧虚拟节点（oldVnode）做对比，找出真正需要更新的节点来进行DOM操作，从而避免操作其他无任何改动的DOM。
+<figure><img src="http://www.ituring.com.cn/figures/2020/Vuejs/05-005.png"/><figcaption>
+            <h4>虚拟DOM的执行过程</h4>
+        </figcaption>
+</figure>
+</p>
+</li>
+</ul>
+<blockquote>
+<p>1）提供与真实DOM节点所对应的虚拟节点vnode。
+2）将虚拟节点vnode和旧虚拟节点oldVnode进行比对，然后更新视图。</p>
+</blockquote>
+<h4 id="vnode">VNode</h4>
+<h5 id="什么是vnode">什么是VNode</h5>
+<p>它是Vue.js中存在的一个类，使用它可以实例化不同类型的vnode实例，而不同类型的vnode实例各自表示不同类型的DOM元素。</p>
+<p>例如，DOM元素有元素节点、文本节点和注释节点等，vnode实例也会对应着有元素节点、文本节点和注释节点等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">VNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="nx">constructor</span> <span class="p">(</span><span class="nx">tag</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">children</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="nx">elm</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">componentOptions</span><span class="p">,</span> <span class="nx">asyncFactory</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>      <span class="k">this</span><span class="p">.</span><span class="nx">tag</span> <span class="o">=</span> <span class="nx">tag</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>      <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>      <span class="k">this</span><span class="p">.</span><span class="nx">children</span> <span class="o">=</span> <span class="nx">children</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>      <span class="k">this</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">text</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>      <span class="k">this</span><span class="p">.</span><span class="nx">elm</span> <span class="o">=</span> <span class="nx">elm</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>      <span class="k">this</span><span class="p">.</span><span class="nx">ns</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>      <span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">=</span> <span class="nx">context</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>      <span class="k">this</span><span class="p">.</span><span class="nx">functionalContext</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>      <span class="k">this</span><span class="p">.</span><span class="nx">functionalOptions</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>      <span class="k">this</span><span class="p">.</span><span class="nx">functionalScopeId</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">13</span>      <span class="k">this</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">key</span>
+</span></span><span class="line"><span class="cl"><span class="mi">14</span>      <span class="k">this</span><span class="p">.</span><span class="nx">componentOptions</span> <span class="o">=</span> <span class="nx">componentOptions</span>
+</span></span><span class="line"><span class="cl"><span class="mi">15</span>      <span class="k">this</span><span class="p">.</span><span class="nx">componentInstance</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">16</span>      <span class="k">this</span><span class="p">.</span><span class="nx">parent</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">17</span>      <span class="k">this</span><span class="p">.</span><span class="nx">raw</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">18</span>      <span class="k">this</span><span class="p">.</span><span class="nx">isStatic</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">19</span>      <span class="k">this</span><span class="p">.</span><span class="nx">isRootInsert</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="mi">20</span>      <span class="k">this</span><span class="p">.</span><span class="nx">isComment</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">21</span>      <span class="k">this</span><span class="p">.</span><span class="nx">isCloned</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">22</span>      <span class="k">this</span><span class="p">.</span><span class="nx">isOnce</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">23</span>      <span class="k">this</span><span class="p">.</span><span class="nx">asyncFactory</span> <span class="o">=</span> <span class="nx">asyncFactory</span>
+</span></span><span class="line"><span class="cl"><span class="mi">24</span>      <span class="k">this</span><span class="p">.</span><span class="nx">asyncMeta</span> <span class="o">=</span> <span class="kc">undefined</span>
+</span></span><span class="line"><span class="cl"><span class="mi">25</span>      <span class="k">this</span><span class="p">.</span><span class="nx">isAsyncPlaceholder</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">26</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">27</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">28</span>    <span class="nx">get</span> <span class="nx">child</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">29</span>      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">componentInstance</span>
+</span></span><span class="line"><span class="cl"><span class="mi">30</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">31</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>vnode可以理解成节点描述对象，它描述了应该怎样去创建真实的DOM节点。
+vnode表示一个真实的DOM元素，所有真实的DOM节点都使用vnode创建并插入到页面中:<strong>渲染视图的过程是先创建vnode，然后再使用vnode去生成真实的DOM元素，最后插入到页面渲染视图。</strong>
+<figure><img src="http://www.ituring.com.cn/figures/2020/Vuejs/06-001.png"/><figcaption>
+            <h4>VNode创建DOM并插入到视图</h4>
+        </figcaption>
+</figure>
+</p>
+<h5 id="vnode的作用">VNode的作用</h5>
+<ul>
+<li>由于每次渲染视图时都是先创建vnode，然后使用它创建真实DOM插入到页面中，所以可以将上一次渲染视图时所创建的vnode缓存起来，之后每当需要重新渲染视图时，将新创建的vnode和上一次缓存的vnode进行对比，查看它们之间有哪些不一样的地方，找出这些不一样的地方并基于此去修改真实的DOM。</li>
+<li>
+<ul>
+<li>Vue.js目前对状态的侦测策略采用了中等粒度。当状态发生变化时，只通知到组件级别，然后组件内使用虚拟DOM来渲染视图。
+也就是说，只要组件使用的众多状态中有一个发生了变化，那么整个组件就要重新渲染。</li>
+</ul>
+</li>
+</ul>
+<p>如果组件只有一个节点发生了变化，那么重新渲染整个组件的所有节点，很明显会造成很大的性能浪费。因此，对vnode进行缓存，并将上一次缓存的vnode和当前新创建的vnode进行对比，只更新发生变化的节点就变得尤为重要。这也是vnode最重要的一个作用。</p>
+<h4 id="patch">patch</h4>
+<ul>
+<li>它虚拟DOM最核心的部分，可以将vnode渲染成真实的DOM。</li>
+</ul>
+<p>patch也可以叫作patching算法，通过它渲染真实DOM时，并不是暴力覆盖原有DOM，而是比对新旧两个vnode之间有哪些不同，然后根据对比结果找出需要更新的节点进行更新。这一点从名字就可以看出，patch本身就有补丁、修补等意思，其实际作用是在现有DOM上进行修改来实现更新视图的目的。</p>
+<p>之所以要这么做，主要是因为DOM操作的执行速度远不如JavaScript的运算速度快。因此，把大量的DOM操作搬运到JavaScript中，使用patching算法来计算出真正需要更新的节点，最大限度地减少DOM操作，从而显著提升性能。这本质上其实是使用JavaScript的运算成本来替换DOM操作的执行成本，而JavaScript的运算速度要比DOM快很多，这样做很划算，所以才会有虚拟DOM。</p>
+<ul>
+<li>创建新增的节点；</li>
+<li>删除已经废弃的节点；</li>
+<li>修改需要更新的节点。</li>
+</ul>
+<h4 id="模板编译原理">模板编译原理</h4>
+<ul>
+<li>
+<p>模板编译成渲染函数有三部分内容：先将模板解析成AST，然后遍历AST标记静态节点，最后使用AST生成代码字符串。这三部分内容分别对应三个模块：解析器、优化器和代码生成器。
+<figure><img src="http://www.ituring.com.cn/figures/2020/Vuejs/08-001.png"/><figcaption>
+            <h4>模板编译在整个渲染过程中的位置</h4>
+        </figcaption>
+</figure>
+</p>
+</li>
+<li>
+<p>Vue.js提供了模板语法，允许我们声明式地描述状态和DOM之间的绑定关系，然后通过模板来生成真实DOM并将其呈现在用户界面上。</p>
+</li>
+<li>
+<p>在底层实现上，Vue.js会将模板编译成虚拟DOM渲染函数。当应用内部的状态发生变化时，Vue.js可以结合响应式系统，聪明地找出最小数量的组件进行重新渲染以及最少量地进行DOM操作</p>
+</li>
+</ul>
+<h5 id="解析器">解析器</h5>
+<blockquote>
+<p>解析器的作用是通过模板得到AST（抽象语法树）。
+生成AST的过程需要借助HTML解析器，当HTML解析器触发不同的钩子函数时，我们可以构建出不同的节点。随后，我们可以通过栈来得到当前正在构建的节点的父节点，然后将构建出的节点添加到父节点的下面。最终，当HTML解析器运行完毕后，我们就可以得到一个完整的带DOM层级关系的AST。HTML解析器的内部原理是一小段一小段地截取模板字符串，每截取一小段字符串，就会根据截取出来的字符串类型触发不同的钩子函数，直到模板字符串截空停止运行。文本分两种类型，不带变量的纯文本和带变量的文本，后者需要使用文本解析器进行二次加工。</p>
+</blockquote>
+<ul>
+<li>解析器内部也分了好几个子解析器，比如HTML解析器、文本解析器以及过滤器解析器，其中最主要的是HTML解析器</li>
+</ul>
+<p>模板:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">name</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>转换成AST后：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="nx">tag</span><span class="o">:</span> <span class="s2">&#34;div&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>    <span class="nx">type</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>    <span class="nx">staticRoot</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>    <span class="kr">static</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>    <span class="nx">plain</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>    <span class="nx">parent</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>    <span class="nx">attrsList</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>    <span class="nx">attrsMap</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>    <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>        <span class="nx">tag</span><span class="o">:</span> <span class="s2">&#34;p&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">13</span>        <span class="nx">type</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">14</span>        <span class="nx">staticRoot</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">15</span>        <span class="kr">static</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">16</span>        <span class="nx">plain</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">17</span>        <span class="nx">parent</span><span class="o">:</span> <span class="p">{</span><span class="nx">tag</span><span class="o">:</span> <span class="s2">&#34;div&#34;</span><span class="p">,</span> <span class="p">...},</span>
+</span></span><span class="line"><span class="cl"><span class="mi">18</span>        <span class="nx">attrsList</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl"><span class="mi">19</span>        <span class="nx">attrsMap</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl"><span class="mi">20</span>        <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">21</span>          <span class="nx">type</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">22</span>          <span class="nx">text</span><span class="o">:</span> <span class="s2">&#34;{{name}}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">23</span>          <span class="kr">static</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">24</span>          <span class="nx">expression</span><span class="o">:</span> <span class="s2">&#34;_s(name)&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">25</span>        <span class="p">}]</span>
+</span></span><span class="line"><span class="cl"><span class="mi">26</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">27</span>    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mi">28</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>AST是用JavaScript中的对象来描述一个节点，一个对象表示一个节点，对象中的属性用来保存节点所需的各种数据。比如，parent属性保存了父节点的描述对象，children属性是一个数组，里面保存了一些子节点的描述对象。再比如，type属性表示一个节点的类型等。当很多个独立的节点通过parent属性和children属性连在一起时，就变成了一个树，而这样一个用对象描述的节点树其实就是AST。</li>
+</ul>
+<h5 id="优化器">优化器</h5>
+<p>优化器的作用是在AST中找出静态子树并打上标记，这样做有两个好处：</p>
+<p>每次重新渲染时，不需要为静态子树创建新节点；
+在虚拟DOM中打补丁的过程可以跳过。
+优化器的内部实现其实主要分为两个步骤：</p>
+<p>(1) 在AST中找出所有静态节点并打上标记；</p>
+<p>(2) 在AST中找出所有静态根节点并打上标记。</p>
+<p>通过递归的方式从上向下标记静态节点时，如果一个节点被标记为静态节点，但它的子节点却被标记为动态节点，就说明该节点不是静态节点，可以将它改为动态节点。静态节点的特征是它的子节点必须是静态节点。</p>
+<p>标记完静态节点之后需要标记静态根节点，其标记方式也是使用递归的方式从上向下寻找，在寻找的过程中遇到的第一个静态节点就为静态根节点，同时不再向下继续查找。</p>
+<p>但有两种情况比较特殊：一种是如果一个静态根节点的子节点只有一个文本节点，那么不会将它标记成静态根节点，即便它也属于静态根节点；另一种是如果找到的静态根节点是一个没有子节点的静态节点，那么也不会将它标记为静态根节点。因为这两种情况下，优化成本大于收益。</p>
+<h5 id="代码生成器">代码生成器</h5>
+<blockquote>
+<p>代码生成器是模板编译的最后一步，它的作用是将AST转换成渲染函数中的内容，这个内容可以称为代码字符串。代码字符串可以被包装在函数中执行，这个函数就是我们通常所说的渲染函数。<strong>渲染函数被执行之后，可以生成一份VNode，而虚拟DOM可以通过这个VNode来渲染视图</strong></p>
+</blockquote>
+<h6 id="流程">流程</h6>
+<p>1、模板:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;el&#34;</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="p">{{</span><span class="nx">name</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>2、转换成AST并且经过优化器的优化后:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>    <span class="s1">&#39;tag&#39;</span><span class="o">:</span> <span class="s1">&#39;div&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>    <span class="s1">&#39;attrsList&#39;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>        <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>        <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="s1">&#39;el&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>    <span class="s1">&#39;attrsMap&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>      <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="s1">&#39;el&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="mi">13</span>    <span class="s1">&#39;children&#39;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">14</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">15</span>        <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">16</span>        <span class="s1">&#39;expression&#39;</span><span class="o">:</span> <span class="s1">&#39;&#34;Hello &#34;+_s(name)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">17</span>        <span class="s1">&#39;text&#39;</span><span class="o">:</span> <span class="s1">&#39;Hello {{name}}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">18</span>        <span class="s1">&#39;static&#39;</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">19</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">20</span>    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="mi">21</span>    <span class="s1">&#39;plain&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">22</span>    <span class="s1">&#39;attrs&#39;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">23</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">24</span>        <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">25</span>        <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="s1">&#39;&#34;el&#34;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">26</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">27</span>    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="mi">28</span>    <span class="s1">&#39;static&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">29</span>    <span class="s1">&#39;staticRoot&#39;</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="mi">30</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3、代码生成器可以通过上面这个AST来生成代码字符串：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"> <span class="s1">&#39;with(this){return _c(&#34;div&#34;,{attrs:{&#34;id&#34;:&#34;el&#34;}},[_v(&#34;Hello &#34;+_s(name))])}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>格式化后:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="kd">with</span> <span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="k">return</span> <span class="nx">_c</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>      <span class="s2">&#34;div&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>        <span class="nx">attrs</span><span class="o">:</span><span class="p">{</span><span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;el&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>      <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>      <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>        <span class="nx">_v</span><span class="p">(</span><span class="s2">&#34;Hello &#34;</span><span class="o">+</span><span class="nx">_s</span><span class="p">(</span><span class="nx">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>      <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>仔细观察生成后的代码字符串，我们会发现，这其实是一个嵌套的函数调用。函数 _c的参数中执行了函数 _v，而函数 _v的参数中又执行了函数 _s。</p>
+<p>代码字符串中的 _c其实是createElement的别名。createElement是虚拟DOM中所提供的方法，它的作用是创建虚拟节点，有三个参数，分别是：</p>
+<p>标签名
+一个包含模板相关属性的数据对象
+子节点列表
+调用createElement方法，我们可以得到一个VNode。</p>
+<p>这也就知道了渲染函数可以生成VNode的原因：渲染函数其实是执行了createElement，而createElement可以创建一个VNode。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
