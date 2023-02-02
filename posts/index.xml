@@ -61,6 +61,14 @@
     <description><![CDATA[Vuex is a state management pattern ]]></description>
 </item>
 <item>
+    <title>Vue实践规范</title>
+    <link>https://liaozhijie8.github.io/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83/</link>
+    <pubDate>Mon, 02 May 2022 11:13:33 &#43;0800</pubDate>
+    <author>6eon</author>
+    <guid>https://liaozhijie8.github.io/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>原型</title>
     <link>https://liaozhijie8.github.io/%E5%8E%9F%E5%9E%8B/</link>
     <pubDate>Mon, 24 Jan 2022 23:15:54 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>6eon</author>
     <guid>https://liaozhijie8.github.io/javascript%E5%AD%A6%E4%B9%A0%E4%B9%A6%E7%AD%BE/</guid>
     <description><![CDATA[学习书签集合]]></description>
-</item>
-<item>
-    <title>各种居中</title>
-    <link>https://liaozhijie8.github.io/%E5%90%84%E7%A7%8D%E5%B1%85%E4%B8%AD/</link>
-    <pubDate>Wed, 02 Jun 2021 16:47:54 &#43;0800</pubDate>
-    <author>6eon</author>
-    <guid>https://liaozhijie8.github.io/%E5%90%84%E7%A7%8D%E5%B1%85%E4%B8%AD/</guid>
-    <description><![CDATA[一次解决所有居中烦恼]]></description>
 </item>
 </channel>
 </rss>

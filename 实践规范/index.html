@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Vue实践规范 - 6eon | 博客</title><meta name="Description" content="今天不学习,明天变废物"><meta property="og:title" content="Vue实践规范" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liaozhijie8.github.io/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83/" /><meta property="og:image" content="https://liaozhijie8.github.io/tea.svg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-02T11:13:33+08:00" />
+<meta property="article:modified_time" content="2022-05-02T11:13:33+08:00" /><meta property="og:site_name" content="我的网站" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://liaozhijie8.github.io/tea.svg"/>
+
+<meta name="twitter:title" content="Vue实践规范"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="6eon | 博客">
+<meta name="apple-mobile-web-app-title" content="6eon | 博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://liaozhijie8.github.io/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83/" /><link rel="prev" href="https://liaozhijie8.github.io/%E5%8E%9F%E5%9E%8B/" /><link rel="next" href="https://liaozhijie8.github.io/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Vue实践规范",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/liaozhijie8.github.io\/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83\/"
+        },"genre": "posts","keywords": "规范","wordcount":  5262 ,
+        "url": "https:\/\/liaozhijie8.github.io\/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83\/","datePublished": "2022-05-02T11:13:33+08:00","dateModified": "2022-05-02T11:13:33+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "6eon"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="6eon | 博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/loop.svg"
+        data-srcset="/loop.svg, /loop.svg 1.5x, /loop.svg 2x"
+        data-sizes="auto"
+        alt="/loop.svg"
+        title="/loop.svg" /><span id="id-1" class="typeit"></span><span class="header-title-post"><i class="fab fa-gulp"></i></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="6eon | 博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/loop.svg"
+        data-srcset="/loop.svg, /loop.svg 1.5x, /loop.svg 2x"
+        data-sizes="auto"
+        alt="/loop.svg"
+        title="/loop.svg" /><span id="id-2" class="typeit"></span><span class="header-title-post"><i class="fab fa-gulp"></i></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vue实践规范</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>6eon</a></span>&nbsp;<span class="post-category">included in <a href="/categories/vue/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vue</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-05-02">2022-05-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5262 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;<span id="/%E5%AE%9E%E8%B7%B5%E8%A7%84%E8%8C%83/" class="leancloud_visitors" data-flag-title="Vue实践规范">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1为列表渲染设置属性key">1、为列表渲染设置属性key</a></li>
+                <li><a href="#2在v-ifv-if-elsev-else中使用key">2、在v-if/v-if-else/v-else中使用key</a></li>
+                <li><a href="#3解决路由切换组件不变">3、解决路由切换组件不变</a>
+                  <ul>
+                    <li><a href="#方法一路由导航守卫beforerouteupdate">方法一:路由导航守卫beforeRouteUpdate</a></li>
+                    <li><a href="#方法二观察-route对象的变化">方法二:观察 $route对象的变化</a></li>
+                    <li><a href="#方法三为router-view组件添加属性key">方法三:为router-view组件添加属性key</a></li>
+                  </ul>
+                </li>
+                <li><a href="#4区分vuex与props的使用边界">4、区分Vuex与props的使用边界</a></li>
+                <li><a href="#5避免v-if和v-for一起使用">5、避免v-if和v-for一起使用</a></li>
+                <li><a href="#6为组件样式设置作用域">6、为组件样式设置作用域</a>
+                  <ul>
+                    <li><a href="#避免在scoped中使用元素选择器">避免在scoped中使用元素选择器</a></li>
+                  </ul>
+                </li>
+                <li><a href="#7避免隐性的父子组件通信">7、避免隐性的父子组件通信</a></li>
+                <li><a href="#8单文件组件如何命名">8、单文件组件如何命名</a>
+                  <ul>
+                    <li><a href="#单文件组件的文件名的大小写">单文件组件的文件名的大小写</a></li>
+                    <li><a href="#基础组件名">基础组件名</a></li>
+                    <li><a href="#单例组件名">单例组件名</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h5 id="1为列表渲染设置属性key">1、为列表渲染设置属性key</h5>
+<p><strong>key这个特殊属性主要用在Vue.js的虚拟DOM算法中，在对比新旧虚拟节点时辨识虚拟节点。</strong>
+在虚拟DOM中，更新子节点时，需要从旧虚拟节点列表中查找与新虚拟节点相同的节点进行更新。如果这个查找过程设置了属性key，那么查找速度会快很多。所以无论何时，建议大家尽可能地在使用v-for时提供key。示例如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="nt">v-for</span><span class="s">=&#34;item in items&#34; :key=&#34;item.id&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">02</span>    <span class="err">&lt;!--</span> <span class="err">内容</span> <span class="err">--</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="2在v-ifv-if-elsev-else中使用key">2、在v-if/v-if-else/v-else中使用key</h5>
+<p>如果一组v-if+v-else的元素类型相同，最好使用属性key（比如两个<code>&lt;div&gt;</code>元素）。
+v-if指令在编译后：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">(</span><span class="nx">has</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="o">?</span> <span class="nx">_c</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,[</span><span class="nx">_v</span><span class="p">(</span><span class="s2">&#34;if&#34;</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>    <span class="o">:</span> <span class="nx">_c</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">,[</span><span class="nx">_v</span><span class="p">(</span><span class="s2">&#34;else&#34;</span><span class="p">)])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当状态发生变化时，生成的虚拟节点既有可能是v-if上的虚拟节点，也有可能是v-else上的虚拟节点。</p>
+<blockquote>
+<p>默认情况下，Vue.js会尽可能高效地更新DOM。这意味着，当它在相同类型的元素之间切换时，会修补已存在的元素，而不是将旧的元素移除，然后在同一位置添加一个新元素。如果本不相同的元素被识别为相同，则会出现意料之外的副作用。如果添加了属性key，那么在比对虚拟DOM时，则会认为它们是两个不同的节点，于是会将旧元素移除并在相同的位置添加一个新元素，从而避免意料之外的副作用。</p>
+</blockquote>
+<p>不添加key:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="nt">v-if</span><span class="s">=&#34;error&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">02</span>    <span class="err">错误：</span><span class="p">{{</span> <span class="na">error</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="na">03</span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">04</span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="nt">v-else</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">05</span>    <span class="p">{{</span> <span class="na">results</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="na">06</span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加key：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">div</span>
+</span></span><span class="line"><span class="cl"><span class="na">02</span>    <span class="na">v</span><span class="nt">-if</span><span class="err">=&#34;</span><span class="na">error</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">03</span>    <span class="na">key</span><span class="o">=</span><span class="s">&#34;search-status&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">04</span>  <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>    <span class="nx">错误</span><span class="err">：</span><span class="p">{{</span> <span class="nx">error</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>  <span class="p">&lt;</span><span class="nt">div</span>
+</span></span><span class="line"><span class="cl"><span class="na">08</span>    <span class="na">v</span><span class="nt">-else</span>
+</span></span><span class="line"><span class="cl"><span class="na">09</span>    <span class="na">key</span><span class="o">=</span><span class="s">&#34;search-results&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">10</span>  <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>    <span class="p">{{</span> <span class="nx">results</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="3解决路由切换组件不变">3、解决路由切换组件不变</h5>
+<blockquote>
+<p>在使用Vue.js开发项目时，最常遇到的一个典型问题就是，当页面切换到同一个路由但不同参数的地址时，组件的生命周期钩子并不会重新触发。</p>
+</blockquote>
+<p>例如，路由是下面这样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/detail/:id&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;detail&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>      <span class="nx">component</span><span class="o">:</span> <span class="nx">Detail</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>  <span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当我们从路由/detail/1切换到/detail/2时，组件是不会发生任何变化的。
+这是因为vue-router会识别出两个路由使用的是同一个组件从而进行复用，并不会重新创建组件，因此组件的生命周期钩子自然也不会被触发。
+<strong>组件本质上是一个映射关系</strong>，所以先销毁再重建一个相同的组件会存在很大程度上的性能浪费，复用组件才是正确的选择。但是这也意味着组件的生命周期钩子不会再被调用。</p>
+<h6 id="方法一路由导航守卫beforerouteupdate">方法一:路由导航守卫beforeRouteUpdate</h6>
+<blockquote>
+<p>vue-router提供了导航守卫beforeRouteUpdate，该守卫在当前路由改变且组件被复用时调用，所以可以在组件内定义路由导航守卫来解决这个问题。</p>
+</blockquote>
+<p>组件的生命周期钩子虽然不会重新触发，但是路由提供的beforeRouteUpdate守卫可以被触发。因此，只需要把每次切换路由时需要执行的逻辑放到beforeRouteUpdate守卫中即可。例如，在beforeRouteUpdate守卫中发送请求拉取数据，更新状态并重新渲染视图。</p>
+<h6 id="方法二观察-route对象的变化">方法二:观察 $route对象的变化</h6>
+<p>通过watch可以监听到路由对象发生的变化，从而对路由变化作出响应。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="kr">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>    <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>      <span class="s1">&#39;$route&#39;</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>        <span class="c1">// 对路由变化作出响应
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">06</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种方式也可以解决上述问题，但代价是<strong>组件内多了一个watch，这会带来依赖追踪的内存开销。</strong></p>
+<p>如果最终选择使用watch解决这个问题，那么在某些场景下我推荐在组件里<strong>只观察自己需要的query</strong>，这样有利于减少不必要的请求。</p>
+<blockquote>
+<p>假设有这样一个场景，页面中有两部分内容，上面是个人的描述信息，下面一个带翻页的列表，这时假设路由中的参数是 /user?id=4&amp;page=1时，说明用户ID是4，列表是第一页。
+我们可以断定每次翻页时只需要发送列表的请求，而个人的描述信息只需要第一次进入组件时请求一次即可。当翻到第二页时，路由应该是这样的：/user?id=4&amp;page=2。</p>
+</blockquote>
+<p>可以看到，参数中的id没有变，只有page变了。所以为了避免发送多余的请求，应该这样去观察路由：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="kr">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>    <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>      <span class="s1">&#39;$route.query.id&#39;</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>        <span class="c1">// 请求个人描述信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">06</span>      <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>      <span class="s1">&#39;$route.query.page&#39;</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>        <span class="c1">// 请求列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">09</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不好的做法是统一观察 $route：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="kr">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>    <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>      <span class="s1">&#39;$route&#39;</span> <span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>        <span class="c1">// 请求个人描述信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">06</span>        <span class="c1">// 请求列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">07</span>      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种做法之所以不好，是因为如果路由参数中只是页码变了，那么只需要请求列表信息即可，但是上面的做法还会请求个人描述信息。</p>
+<h6 id="方法三为router-view组件添加属性key">方法三:为router-view组件添加属性key</h6>
+<p>这种做法非常取巧，非常“暴力”，但非常有效。它本质上是利用虚拟DOM在渲染时通过key来对比两个节点是否相同的原理。通过给router-view组件设置key，可以使每次切换路由时的key都不一样，让虚拟DOM认为router-view组件是一个新节点，从而先销毁组件，然后再重新创建新组件。即使是相同的组件，但是如果url变了，key就变了，Vue.js就会重新创建这个组件。</p>
+<p>因为组件是新创建的，所以组件内的生命周期会重复触发。示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">router-view</span> <span class="nt">:key</span><span class="s">=&#34;$route.fullPath&#34;</span><span class="p">&gt;</span><span class="o">&lt;</span><span class="err">/router-view&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种方式的坏处很明显，<strong>每次切换路由组件时都会被销毁并且重新创建，非常浪费性能</strong>。其优点更明显，简单粗暴，改动小。为router-view组件设置了key之后，立刻就可以看到问题被解决了。</p>
+<h5 id="4区分vuex与props的使用边界">4、区分Vuex与props的使用边界</h5>
+<blockquote>
+<p>通常，在项目开发中，业务组件会使用Vuex维护状态，使用不同组件统一操作Vuex中的状态。这样不论是父子组件间的通信还是兄弟组件间的通信，都很容易。<strong>对于通用组件</strong>，我会使用props以及事件进行父子组件间的通信（通用组件不需要兄弟组件间的通信）。这样做是因为通用组件会拿到各个业务组件中使用，它要与业务解耦，所以需要使用props获取状态。</p>
+</blockquote>
+<p>通用组件要定义细致的prop，并且尽可能详细，至少需要指定其类型。这样做的好处是：</p>
+<ul>
+<li>写明了组件的API，所以很容易看懂组件的用法；</li>
+<li>在开发环境下，如果向一个组件提供格式不正确的prop，Vue.js将会在控制台发出警告，帮助我们捕获潜在的错误来源。</li>
+</ul>
+<h5 id="5避免v-if和v-for一起使用">5、避免v-if和v-for一起使用</h5>
+<blockquote>
+<p>Vue.js官方强烈建议不要把v-if和v-for同时用在同一个元素上。</p>
+</blockquote>
+<p>通常，我们在下面两种常见的情况下，会倾向于不同的做法。</p>
+<ul>
+<li>为了过滤一个列表中的项目（比如v-for=&ldquo;user in users&rdquo; v-if=&ldquo;user.isActive&rdquo;），请将users替换为一个计算属性（比如activeUsers），让它返回过滤后的列表。</li>
+<li>为了避免渲染本应该被隐藏的列表（比如v-for=&ldquo;user in users&rdquo; v-if=&ldquo;shouldShow-Users&rdquo;），请将v-if移动至容器元素上（比如ul和ol）。</li>
+</ul>
+<p>对于第一种情况，Vue.js官方给出的解释是：当Vue.js处理指令时，v-for比v-if具有更高的优先级，所以即使我们只渲染出列表中的一小部分元素，也得在每次重渲染的时候遍历整个列表，而不考虑活跃用户是否发生了变化。通过将列表更换为在一个计算属性上遍历并过滤掉不需要渲染的数据，我们将会获得如下好处。</p>
+<ul>
+<li>过滤后的列表只会在数组发生相关变化时才被重新运算，过滤更高效。</li>
+<li>使用v-for=&ldquo;user in activeUsers&quot;之后，我们在渲染时只遍历活跃用户，渲染更高效。</li>
+<li>解耦渲染层的逻辑，可维护性（对逻辑的更改和扩展）更强。</li>
+<li></li>
+</ul>
+<p>混合一起写法:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">li</span>
+</span></span><span class="line"><span class="cl"><span class="na">03</span>      <span class="na">v</span><span class="nt">-for</span><span class="err">=&#34;</span><span class="na">user</span> <span class="na">in</span> <span class="na">users</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">04</span>      <span class="na">v</span><span class="nt">-if</span><span class="err">=&#34;</span><span class="na">user.isActive</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">05</span>      <span class="nt">:key</span><span class="s">=&#34;user.id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">06</span>    <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>      <span class="p">{{</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以更换为在如下的一个计算属性上遍历并过滤列表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="nx">activeUsers</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>        <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">isActive</span>
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>      <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>模板更改为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">li</span>
+</span></span><span class="line"><span class="cl"><span class="na">03</span>      <span class="na">v</span><span class="nt">-for</span><span class="err">=&#34;</span><span class="na">user</span> <span class="na">in</span> <span class="na">activeUsers</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">04</span>      <span class="nt">:key</span><span class="s">=&#34;user.id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">05</span>    <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>      <span class="p">{{</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于第二种情况，官方解释是为了获得同样的好处，可以把：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">li</span>
+</span></span><span class="line"><span class="cl"><span class="na">03</span>      <span class="na">v</span><span class="nt">-for</span><span class="err">=&#34;</span><span class="na">user</span> <span class="na">in</span> <span class="na">users</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">04</span>      <span class="na">v</span><span class="nt">-if</span><span class="err">=&#34;</span><span class="na">shouldShowUsers</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">05</span>      <span class="nt">:key</span><span class="s">=&#34;user.id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">06</span>    <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>      <span class="p">{{</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更新为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">ul</span> <span class="nt">v-if</span><span class="s">=&#34;shouldShowUsers&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="na">02</span>    <span class="p">&lt;</span><span class="nt">li</span>
+</span></span><span class="line"><span class="cl"><span class="na">03</span>      <span class="na">v</span><span class="nt">-for</span><span class="err">=&#34;</span><span class="na">user</span> <span class="na">in</span> <span class="na">users</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">04</span>      <span class="nt">:key</span><span class="s">=&#34;user.id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">05</span>    <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>      <span class="p">{{</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过将v-if移动到容器元素，我们不会再检查每个用户的shouldShowUsers，取而代之的是，我们只检查它一次，且不会在shouldShowUsers为false的时候运算v-for。</p>
+<h5 id="6为组件样式设置作用域">6、为组件样式设置作用域</h5>
+<blockquote>
+<p>CSS的规则都是全局的，任何一个组件的样式规则都对整个页面有效。因此，我们很容易在一个组件中写了某个样式，而不小心影响了另一个组件的样式，或者自己的组件被第三方库的CSS影响了。<strong>对于应用来说，最佳实践是只有顶级App组件和布局组件中的样式可以是全局的，其他所有组件都应该是有作用域的。</strong></p>
+</blockquote>
+<p>在Vue.js中，可以通过scoped特性或CSS Modules（一个基于class的类似BEM的策略）来设置组件样式作用域。</p>
+<p>对于组件库，我们应该更倾向于选用基于class的策略而不是scoped特性。因为基于class的策略使覆写内部样式更容易，它使用容易理解的class名称且没有太高的选择器优先级，不容易导致冲突。
+<strong>使用scoped特性</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;button button-close&#34;</span><span class="p">&gt;</span><span class="nx">X</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>  <span class="c">&lt;!--</span> <span class="nx">使用scoped特性</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>  <span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>  <span class="p">.</span><span class="nx">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>    <span class="nx">border</span><span class="o">:</span> <span class="nx">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">2</span><span class="nx">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>  <span class="p">.</span><span class="nx">button</span><span class="o">-</span><span class="nx">close</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">13</span>    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="nx">red</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">14</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">15</span>  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>使用CSS Modules</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">button</span> <span class="o">:</span><span class="na">class</span><span class="o">=</span><span class="s">&#34;[$style.button, $style.buttonClose]&#34;</span><span class="p">&gt;</span><span class="nx">X</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>  <span class="c">&lt;!--</span> <span class="nx">使用CSS</span> <span class="nx">Modules</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>  <span class="p">&lt;</span><span class="nt">style</span> <span class="na">module</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>  <span class="p">.</span><span class="nx">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>    <span class="nx">border</span><span class="o">:</span> <span class="nx">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>    <span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span> <span class="mi">2</span><span class="nx">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">10</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">11</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">12</span>  <span class="p">.</span><span class="nx">buttonClose</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">13</span>    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="nx">red</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">14</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">15</span>  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="避免在scoped中使用元素选择器">避免在scoped中使用元素选择器</h6>
+<blockquote>
+<p>在scoped样式中，类选择器比元素选择器更好，因为大量使用元素选择器是很慢的。</p>
+</blockquote>
+<p>为了给样式设置作用域，Vue.js会为元素添加一个独一无二的特性，例如data-v-f3f3eg9。然后修改选择器，使得在匹配选择器的元素中，只有带这个特性的才会真正生效（比如button[data-v-f3f3eg9]）。</p>
+<p>问题在于，大量的元素和特性组合的选择器（比如button[data-v-f3f3eg9]）会比类和特性组合的选择器慢，所以应该尽可能选用类选择器。</p>
+<p>不好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span><span class="nx">X</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>  <span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>  <span class="nx">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="nx">red</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Vue" data-lang="Vue"><span class="line"><span class="cl"><span class="mi">01</span>  <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">02</span>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-close&#34;</span><span class="p">&gt;</span><span class="nx">X</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">03</span>  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">04</span>  
+</span></span><span class="line"><span class="cl"><span class="mi">05</span>  <span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">06</span>  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">close</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mi">07</span>    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="o">:</span> <span class="nx">red</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">08</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="mi">09</span>  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="7避免隐性的父子组件通信">7、避免隐性的父子组件通信</h5>
+<blockquote>
+<p>我们应该优先通过prop和事件进行父子组件之间的通信，而不是使用this.$parent或改变prop。</p>
+</blockquote>
+<p>**一个理想的Vue.js应用是“prop向下传递，事件向上传递”。**遵循这一约定会让你的组件更容易理解。然而，在一些边界情况下，prop的变更或this.$parent能够简化两个深度耦合的组件。
+问题在于，这种做法在很多简单的场景下可能会更方便。但要注意，不要为了一时方便（少写代码）而牺牲数据流向的简洁性（易于理解）。</p>
+<h5 id="8单文件组件如何命名">8、单文件组件如何命名</h5>
+<h6 id="单文件组件的文件名的大小写">单文件组件的文件名的大小写</h6>
+<p>单文件组件的文件名应该始终是单词首字母大写（PascalCase），或者始终是横线连接的（kebab-case）。</p>
+<p>单词首字母大写对于代码编辑器的自动补全最为友好，因为这会使JS(X)和模板中引用组件的方式尽可能一致。然而，混用文件的命名方式有时候会导致文件系统对大小写不敏感的问题，这也是横线连接命名可取的原因。</p>
+<p>不好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  components/
+</span></span><span class="line"><span class="cl">02  |- mycomponent.vue
+</span></span><span class="line"><span class="cl">03  components/
+</span></span><span class="line"><span class="cl">04  |- myComponent.vue
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  components/
+</span></span><span class="line"><span class="cl">02  |- MyComponent.vue
+</span></span><span class="line"><span class="cl">03  components/
+</span></span><span class="line"><span class="cl">04  |- my-component.vue
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="基础组件名">基础组件名</h6>
+<p>应用特定样式和约定的基础组件（也就是<strong>展示类的、无逻辑的或无状态的组件</strong>）应该全部以一个特定的前缀开头，比如Base、App或V。这些组件可以为你的应用奠定一致的基础样式和行为。它们可能只包括：</p>
+<ul>
+<li>HTML元素</li>
+<li>其他基础组件</li>
+<li>第三方UI组件库
+<strong>它们绝不会包括全局状态（比如来自Vuex store）</strong></li>
+</ul>
+<p>它们的名字通常包含所包裹元素的名字（比如BaseButton、BaseTable），除非没有现成的对应功能的元素（比如 BaseIcon）。如果你为特定的上下文构建类似的组件，那么它们几乎总会消费这些组件（比如BaseButton可能会用在ButtonSubmit上）。</p>
+<p>这样做的几个好处如下。</p>
+<p>当你在编辑器中以字母顺序排序时，应用的基础组件会全部列在一起，这样更容易识别。
+因为组件名应该始终是多个单词，所以这样做可以避免你在包裹简单组件时随意选择前缀（比如MyButton和VueButton）。
+因为这些组件会被频繁使用，所以你可能想把它们放到全局而不是在各处分别导入它们。使用相同的前缀可以让webpack这样工作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  var requireComponent = require.context(&#34;./src&#34;, true, /^Base[A-Z]/)
+</span></span><span class="line"><span class="cl">02  requireComponent.keys().forEach(function (fileName) {
+</span></span><span class="line"><span class="cl">03    var baseComponentConfig = requireComponent(fileName)
+</span></span><span class="line"><span class="cl">04    baseComponentConfig = baseComponentConfig.default || baseComponentConfig
+</span></span><span class="line"><span class="cl">05    var baseComponentName = baseComponentConfig.name || (
+</span></span><span class="line"><span class="cl">06      fileName
+</span></span><span class="line"><span class="cl">07        .replace(/^.+\//, &#39;&#39;)
+</span></span><span class="line"><span class="cl">08        .replace(/\.\w+$/, &#39;&#39;)
+</span></span><span class="line"><span class="cl">09    )
+</span></span><span class="line"><span class="cl">10    Vue.component(baseComponentName, baseComponentConfig)
+</span></span><span class="line"><span class="cl">11  })
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  components/
+</span></span><span class="line"><span class="cl">02  |- MyButton.vue
+</span></span><span class="line"><span class="cl">03  |- VueTable.vue
+</span></span><span class="line"><span class="cl">04  |- Icon.vue
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  components/
+</span></span><span class="line"><span class="cl">02  |- BaseButton.vue
+</span></span><span class="line"><span class="cl">03  |- BaseTable.vue
+</span></span><span class="line"><span class="cl">04  |- BaseIcon.vue
+</span></span><span class="line"><span class="cl">05  components/
+</span></span><span class="line"><span class="cl">06  |- AppButton.vue
+</span></span><span class="line"><span class="cl">07  |- AppTable.vue
+</span></span><span class="line"><span class="cl">08  |- AppIcon.vue
+</span></span><span class="line"><span class="cl">09  components/
+</span></span><span class="line"><span class="cl">10  |- VButton.vue
+</span></span><span class="line"><span class="cl">11  |- VTable.vue
+</span></span><span class="line"><span class="cl">12  |- VIcon.vue
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="单例组件名">单例组件名</h6>
+<blockquote>
+<p>只拥有单个活跃实例的组件以The前缀命名，以示其唯一性。但这并不意味着组件只可用于一个单页面，而是每个页面只使用一次。这些组件永远不接受任何prop，因为它们是为你的应用定制的，而不是应用中的上下文。如果你发现有必要添加prop，就表明这实际上是一个可复用的组件，只是目前在每个页面里只使用了一次。</p>
+</blockquote>
+<p>不好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  components/
+</span></span><span class="line"><span class="cl">02  |- Heading.vue
+</span></span><span class="line"><span class="cl">03  |- MySidebar.vue
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>好的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01  components/
+</span></span><span class="line"><span class="cl">02  |- TheHeading.vue
+</span></span><span class="line"><span class="cl">03  |- TheSidebar.vue
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-05-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E8%A7%84%E8%8C%83/">规范</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E5%8E%9F%E5%9E%8B/" class="prev" rel="prev" title="原型"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>原型</a>
+            <a href="/vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" class="next" rel="next" title="Vue的状态管理">Vue的状态管理<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">6eon</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"S04wKJkecyThUdEKgbRCgbBd-gzGzoHsz","appKey":"MvgrYSGOcg06cgKgxM7nmemd","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-apple@14.0.0/img/apple/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"en","pageSize":10,"placeholder":"说点什么？","recordIP":true,"visitor":true}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"6eon's Blog","id-2":"6eon's Blog"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
